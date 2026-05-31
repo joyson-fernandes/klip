@@ -46,6 +46,7 @@
 		DA81BD335F34E7B9625F0671 /* RecordingHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingHUD.swift; sourceTree = "<group>"; };
 		DD289F23152DF6527CD6CC0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DD925BB70EC470CE2A2E5274 /* SettingsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStoreTests.swift; sourceTree = "<group>"; };
+		F1E8A9B7C2D4E5F3A1B2C3D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E49F58DFAF7F86F3A3A492C6 /* GIFEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFEncoder.swift; sourceTree = "<group>"; };
 		F0AAA364EC0AA0BFD3CEACF8 /* gifsnapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gifsnapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -116,6 +117,7 @@
 				CF312CCDBBDA4AD5B5DA30EA /* GIFEncoderTests.swift */,
 				8755B0E2B8BB3D1779850368 /* OutputHandlerTests.swift */,
 				DD925BB70EC470CE2A2E5274 /* SettingsStoreTests.swift */,
+				F1E8A9B7C2D4E5F3A1B2C3D4 /* Info.plist */,
 			);
 			path = gifsnapTests;
 			sourceTree = "<group>";
@@ -265,6 +267,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = gifsnapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -296,6 +299,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = gifsnapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
