@@ -15,6 +15,7 @@ final class MenuBarController: NSObject {
     private var isRecording = false
     private var hotKeyRef: EventHotKeyRef?
     private var observableSettings: SettingsStoreObservable!
+    private var clickOutsideMonitor: Any?
 
     override init() {
         super.init()
@@ -75,11 +76,24 @@ final class MenuBarController: NSObject {
 
     @objc private func togglePopover() {
         if popover.isShown {
-            popover.performClose(nil)
+            closePopover()
         } else if let button = statusItem.button {
             observableSettings.load()
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+            // Dismiss when clicking anywhere outside (LSUIElement apps don't get .transient
+            // dismissal for free because the app isn't activated on icon click).
+            clickOutsideMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown]) { [weak self] _ in
+                self?.closePopover()
+            }
         }
+    }
+
+    private func closePopover() {
+        if let monitor = clickOutsideMonitor {
+            NSEvent.removeMonitor(monitor)
+            clickOutsideMonitor = nil
+        }
+        popover.performClose(nil)
     }
 
     func handleHotKey() {
