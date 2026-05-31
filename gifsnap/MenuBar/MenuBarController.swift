@@ -25,6 +25,7 @@ final class MenuBarController: NSObject {
         captureEngine.delegate = self
         outputHandler.requestNotificationPermission()
         requestScreenRecordingPermission()
+        try? FileManager.default.createDirectory(at: settings.saveFolder, withIntermediateDirectories: true)
     }
 
     deinit {
@@ -123,9 +124,14 @@ extension MenuBarController: RegionSelectorDelegate {
             do {
                 try await captureEngine.start(rect: rect, screen: screen, fps: settings.fps)
             } catch {
+                NSLog("gifsnap: capture start failed: %@", String(describing: error))
                 await MainActor.run {
                     self.hud.hide()
                     self.isRecording = false
+                    self.outputHandler.sendError(
+                        title: "Capture failed",
+                        body: "Grant Screen Recording permission in System Settings, then quit and reopen gifsnap."
+                    )
                 }
             }
         }
@@ -157,15 +163,26 @@ extension MenuBarController: CaptureEngineDelegate {
                 try? FileManager.default.removeItem(at: framesDirectory)
                 try? FileManager.default.removeItem(at: outputDir)
             } catch {
-                print("gifsnap error: \(error)")
+                NSLog("gifsnap: encode/save failed: %@", String(describing: error))
+                await MainActor.run {
+                    self.outputHandler.sendError(
+                        title: "Couldn't save GIF",
+                        body: String(describing: error)
+                    )
+                }
             }
         }
     }
 
     func captureEngineDidFail(_ engine: CaptureEngine, error: Error) {
+        NSLog("gifsnap: capture stream failed: %@", String(describing: error))
         DispatchQueue.main.async { [weak self] in
             self?.hud.hide()
             self?.isRecording = false
+            self?.outputHandler.sendError(
+                title: "Recording stopped",
+                body: String(describing: error)
+            )
         }
     }
 }
