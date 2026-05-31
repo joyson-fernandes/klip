@@ -14,7 +14,7 @@ struct PopoverView: View {
                     .frame(width: 32, height: 32)
                     .overlay(Text("🎞").font(.system(size: 18)))
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("gifsnap").font(.headline)
+                    Text("klip").font(.headline)
                     Text("⌘⇧G to capture").font(.caption).foregroundColor(.secondary)
                 }
             }

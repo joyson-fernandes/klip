@@ -10,7 +10,7 @@ final class OutputHandler {
 
     func save(gifURL: URL, to folder: URL) throws -> URL {
         try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
-        let filename = "gifsnap-\(formatter.string(from: Date())).gif"
+        let filename = "klip-\(formatter.string(from: Date())).gif"
         let destination = folder.appendingPathComponent(filename)
         try FileManager.default.copyItem(at: gifURL, to: destination)
         return destination

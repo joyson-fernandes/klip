@@ -1,5 +1,5 @@
 import XCTest
-@testable import gifsnap
+@testable import klip
 
 final class GIFEncoderTests: XCTestCase {
     var encoder: GIFEncoder!
@@ -7,7 +7,7 @@ final class GIFEncoderTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        encoder = GIFEncoder(gifskiPath: "/Users/joyson/gifsnap/Resources/gifski")
+        encoder = GIFEncoder(gifskiPath: "/Users/joyson/klip/Resources/gifski")
         tempDir = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
         try! FileManager.default.createDirectory(at: tempDir, withIntermediateDirectories: true)
     }

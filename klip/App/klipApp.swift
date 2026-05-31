@@ -1,7 +1,7 @@
 import AppKit
 
 @main
-struct gifsnapApp {
+struct klipApp {
     static func main() {
         let app = NSApplication.shared
         let delegate = AppDelegate()

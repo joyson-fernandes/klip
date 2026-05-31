@@ -1,5 +1,5 @@
 import XCTest
-@testable import gifsnap
+@testable import klip
 
 final class OutputHandlerTests: XCTestCase {
     var tempDir: URL!
@@ -36,6 +36,6 @@ final class OutputHandlerTests: XCTestCase {
         try FileManager.default.createDirectory(at: saveFolder, withIntermediateDirectories: true)
         let handler = OutputHandler()
         let savedURL = try handler.save(gifURL: sourceURL, to: saveFolder)
-        XCTAssertTrue(savedURL.lastPathComponent.hasPrefix("gifsnap-"))
+        XCTAssertTrue(savedURL.lastPathComponent.hasPrefix("klip-"))
     }
 }

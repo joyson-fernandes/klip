@@ -1,13 +1,13 @@
 import XCTest
-@testable import gifsnap
+@testable import klip
 
 final class SettingsStoreTests: XCTestCase {
     var store: SettingsStore!
 
     override func setUp() {
         super.setUp()
-        let defaults = UserDefaults(suiteName: "com.joyson.gifsnap.test")!
-        defaults.removePersistentDomain(forName: "com.joyson.gifsnap.test")
+        let defaults = UserDefaults(suiteName: "com.joyson.klip.test")!
+        defaults.removePersistentDomain(forName: "com.joyson.klip.test")
         store = SettingsStore(defaults: defaults)
     }
 

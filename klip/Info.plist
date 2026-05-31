@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleName</key>
-    <string>gifsnap</string>
+    <string>klip</string>
+    <key>CFBundleDisplayName</key>
+    <string>klip</string>
     <key>CFBundleIdentifier</key>
-    <string>com.joyson.gifsnap</string>
+    <string>com.joyson.klip</string>
     <key>CFBundleVersion</key>
     <string>1</string>
     <key>CFBundleShortVersionString</key>
@@ -17,9 +19,9 @@
     <key>LSUIElement</key>
     <true/>
     <key>NSScreenCaptureUsageDescription</key>
-    <string>gifsnap needs screen recording access to capture your screen as a GIF.</string>
+    <string>klip needs screen recording access to capture your screen as a GIF or screenshot.</string>
     <key>NSAppleEventsUsageDescription</key>
-    <string>gifsnap needs accessibility access to register a global hotkey.</string>
+    <string>klip needs accessibility access to register a global hotkey.</string>
     <key>NSUserNotificationAlertStyle</key>
     <string>banner</string>
 </dict>

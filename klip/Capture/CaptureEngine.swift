@@ -13,11 +13,11 @@ final class CaptureEngine: NSObject {
     private var stream: SCStream?
     private var framesDirectory: URL?
     private var frameIndex = 0
-    private let queue = DispatchQueue(label: "com.joyson.gifsnap.capture")
+    private let queue = DispatchQueue(label: "com.joyson.klip.capture")
 
     func start(rect: CGRect, screen: NSScreen, fps: Int) async throws {
         let framesDir = FileManager.default.temporaryDirectory
-            .appendingPathComponent("gifsnap-\(UUID().uuidString)")
+            .appendingPathComponent("klip-\(UUID().uuidString)")
         try FileManager.default.createDirectory(at: framesDir, withIntermediateDirectories: true)
         framesDirectory = framesDir
         frameIndex = 0

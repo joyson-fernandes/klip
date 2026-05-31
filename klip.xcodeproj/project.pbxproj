@@ -1,0 +1,514 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		14B72482BC14EB6F75439EC5 /* SettingsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88327D343439B77B39BD30D1 /* SettingsStoreTests.swift */; };
+		164E14125CCBA381CA00AC94 /* OutputHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0934E72B2161DEEF1D469A64 /* OutputHandlerTests.swift */; };
+		5904E6ADDA1F049FDFBBB796 /* RegionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56DE96B4C91EFBC234B27 /* RegionSelector.swift */; };
+		8541627722B8A50C6156FD62 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039D6C43A383376AD2E802B0 /* PopoverView.swift */; };
+		87E7ACB3715717D788C947B8 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A9A30ED66CF46243211BD /* MenuBarController.swift */; };
+		AB98466E00C3A44723B44C4F /* OutputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDEF1107F000D227B65FEA8 /* OutputHandler.swift */; };
+		CDC1915F6FDC481579D81A48 /* GIFEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BECF7A4AFB7A911280389E /* GIFEncoderTests.swift */; };
+		D637965B8A5AF065796532B0 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3547DE7BE4C584C184A4825 /* SettingsStore.swift */; };
+		D955D91D579FDAD00674E196 /* klipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDEA205E7443B927512CA0B /* klipApp.swift */; };
+		DA3A08B6369CC4692E71F18C /* GIFEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0725B5405DBA97EC7B7BE5C4 /* GIFEncoder.swift */; };
+		DBA4CE76410A2F5B95E412C5 /* RecordingHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD381A1007254E11A41E9EB /* RecordingHUD.swift */; };
+		DF57A296CC1EBF68885366A8 /* CaptureEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C398FEB3B4DE1EBB5C2EFFED /* CaptureEngine.swift */; };
+		FFC7310A45FEFFA9642CFC00 /* gifski in Resources */ = {isa = PBXBuildFile; fileRef = AEBD743578955BC074EDD1EC /* gifski */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		365746D156B2CA1E01AF049F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5255442DA518FE6159CE3417 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AC2783B8BA45327012F1ACA;
+			remoteInfo = klip;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		010F838C7F2EF4A06F057840 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		039D6C43A383376AD2E802B0 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
+		0725B5405DBA97EC7B7BE5C4 /* GIFEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFEncoder.swift; sourceTree = "<group>"; };
+		0934E72B2161DEEF1D469A64 /* OutputHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputHandlerTests.swift; sourceTree = "<group>"; };
+		102AE18947A301B3B702AD0E /* klip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = klip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		173A9A30ED66CF46243211BD /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
+		35C56DE96B4C91EFBC234B27 /* RegionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelector.swift; sourceTree = "<group>"; };
+		44BECF7A4AFB7A911280389E /* GIFEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFEncoderTests.swift; sourceTree = "<group>"; };
+		5DA76126F5062B9D9B2D161E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		88327D343439B77B39BD30D1 /* SettingsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStoreTests.swift; sourceTree = "<group>"; };
+		AEBD743578955BC074EDD1EC /* gifski */ = {isa = PBXFileReference; path = gifski; sourceTree = "<group>"; };
+		B3547DE7BE4C584C184A4825 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		B9AE13EBD1AF652D84083C95 /* klipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = klipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C398FEB3B4DE1EBB5C2EFFED /* CaptureEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureEngine.swift; sourceTree = "<group>"; };
+		C72A438C8C3468419DC595D3 /* klip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = klip.entitlements; sourceTree = "<group>"; };
+		CCDEF1107F000D227B65FEA8 /* OutputHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputHandler.swift; sourceTree = "<group>"; };
+		CDDEA205E7443B927512CA0B /* klipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = klipApp.swift; sourceTree = "<group>"; };
+		ECD381A1007254E11A41E9EB /* RecordingHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingHUD.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1255E674DEDF44CCE2545702 = {
+			isa = PBXGroup;
+			children = (
+				53B89A8587E05CF3D1D779B6 /* klip */,
+				2B5AF89626BE8B5F5D81759B /* klipTests */,
+				8581557C32893608F808DD8E /* Resources */,
+				273AF5DA71BA571A5C1BCDAD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		21633022EB28D5F84C35EE2C /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				C398FEB3B4DE1EBB5C2EFFED /* CaptureEngine.swift */,
+				35C56DE96B4C91EFBC234B27 /* RegionSelector.swift */,
+			);
+			path = Capture;
+			sourceTree = "<group>";
+		};
+		273AF5DA71BA571A5C1BCDAD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				102AE18947A301B3B702AD0E /* klip.app */,
+				B9AE13EBD1AF652D84083C95 /* klipTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27E41EB14D79F5E69D8A0506 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				039D6C43A383376AD2E802B0 /* PopoverView.swift */,
+				ECD381A1007254E11A41E9EB /* RecordingHUD.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2B5AF89626BE8B5F5D81759B /* klipTests */ = {
+			isa = PBXGroup;
+			children = (
+				44BECF7A4AFB7A911280389E /* GIFEncoderTests.swift */,
+				010F838C7F2EF4A06F057840 /* Info.plist */,
+				0934E72B2161DEEF1D469A64 /* OutputHandlerTests.swift */,
+				88327D343439B77B39BD30D1 /* SettingsStoreTests.swift */,
+			);
+			path = klipTests;
+			sourceTree = "<group>";
+		};
+		53B89A8587E05CF3D1D779B6 /* klip */ = {
+			isa = PBXGroup;
+			children = (
+				5DA76126F5062B9D9B2D161E /* Info.plist */,
+				C72A438C8C3468419DC595D3 /* klip.entitlements */,
+				9F3A2DA35C763CAAF4DF3519 /* App */,
+				21633022EB28D5F84C35EE2C /* Capture */,
+				8F8D9AADFB1D4D56DEDF6122 /* Encoding */,
+				84E3BBC153D8F871F0653A4F /* MenuBar */,
+				DEB2F0E51330B48293B66391 /* Output */,
+				DAFF47037B5FC858362486B8 /* Settings */,
+				27E41EB14D79F5E69D8A0506 /* UI */,
+			);
+			path = klip;
+			sourceTree = "<group>";
+		};
+		84E3BBC153D8F871F0653A4F /* MenuBar */ = {
+			isa = PBXGroup;
+			children = (
+				173A9A30ED66CF46243211BD /* MenuBarController.swift */,
+			);
+			path = MenuBar;
+			sourceTree = "<group>";
+		};
+		8581557C32893608F808DD8E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AEBD743578955BC074EDD1EC /* gifski */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8F8D9AADFB1D4D56DEDF6122 /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				0725B5405DBA97EC7B7BE5C4 /* GIFEncoder.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		9F3A2DA35C763CAAF4DF3519 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CDDEA205E7443B927512CA0B /* klipApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DAFF47037B5FC858362486B8 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B3547DE7BE4C584C184A4825 /* SettingsStore.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DEB2F0E51330B48293B66391 /* Output */ = {
+			isa = PBXGroup;
+			children = (
+				CCDEF1107F000D227B65FEA8 /* OutputHandler.swift */,
+			);
+			path = Output;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3AC2783B8BA45327012F1ACA /* klip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1FC5FCEE23244CD29DBA7AD /* Build configuration list for PBXNativeTarget "klip" */;
+			buildPhases = (
+				F55A85F3A8ADB006E26BEEA0 /* Sources */,
+				35353F36D723311DA54EFA24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = klip;
+			packageProductDependencies = (
+			);
+			productName = klip;
+			productReference = 102AE18947A301B3B702AD0E /* klip.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7B26DEAB29A303B2EF5F92AD /* klipTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E13282CDAAF23AB6FB8E18E4 /* Build configuration list for PBXNativeTarget "klipTests" */;
+			buildPhases = (
+				D3135D9F3EEC6DE5EFCCCF4C /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6AA329665E867C63C3B0B79E /* PBXTargetDependency */,
+			);
+			name = klipTests;
+			packageProductDependencies = (
+			);
+			productName = klipTests;
+			productReference = B9AE13EBD1AF652D84083C95 /* klipTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5255442DA518FE6159CE3417 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					3AC2783B8BA45327012F1ACA = {
+						DevelopmentTeam = 77YLNJXKXT;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 727DA3B4ADF579DDB2A899AE /* Build configuration list for PBXProject "klip" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 1255E674DEDF44CCE2545702;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 273AF5DA71BA571A5C1BCDAD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3AC2783B8BA45327012F1ACA /* klip */,
+				7B26DEAB29A303B2EF5F92AD /* klipTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		35353F36D723311DA54EFA24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFC7310A45FEFFA9642CFC00 /* gifski in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D3135D9F3EEC6DE5EFCCCF4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDC1915F6FDC481579D81A48 /* GIFEncoderTests.swift in Sources */,
+				164E14125CCBA381CA00AC94 /* OutputHandlerTests.swift in Sources */,
+				14B72482BC14EB6F75439EC5 /* SettingsStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F55A85F3A8ADB006E26BEEA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF57A296CC1EBF68885366A8 /* CaptureEngine.swift in Sources */,
+				DA3A08B6369CC4692E71F18C /* GIFEncoder.swift in Sources */,
+				87E7ACB3715717D788C947B8 /* MenuBarController.swift in Sources */,
+				AB98466E00C3A44723B44C4F /* OutputHandler.swift in Sources */,
+				8541627722B8A50C6156FD62 /* PopoverView.swift in Sources */,
+				DBA4CE76410A2F5B95E412C5 /* RecordingHUD.swift in Sources */,
+				5904E6ADDA1F049FDFBBB796 /* RegionSelector.swift in Sources */,
+				D637965B8A5AF065796532B0 /* SettingsStore.swift in Sources */,
+				D955D91D579FDAD00674E196 /* klipApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6AA329665E867C63C3B0B79E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AC2783B8BA45327012F1ACA /* klip */;
+			targetProxy = 365746D156B2CA1E01AF049F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		08ED6E14C9FAD627723D42A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joyson.klip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		1BC52EBD3662F755883D22F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = klipTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/klip.app/Contents/MacOS/klip";
+			};
+			name = Debug;
+		};
+		56D97FF983DDD7AAF8984409 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = klipTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/klip.app/Contents/MacOS/klip";
+			};
+			name = Release;
+		};
+		5F72A6745B58316543C52469 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joyson.klip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		9306D402A62452CFC1ABF0C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = klip/klip.entitlements;
+				CODE_SIGN_IDENTITY = E5B229B6341D07CBADB83D08A4BBA6CFE931B635;
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 77YLNJXKXT;
+				INFOPLIST_FILE = klip/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		9CF750055B1D56D01E189A04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = klip/klip.entitlements;
+				CODE_SIGN_IDENTITY = E5B229B6341D07CBADB83D08A4BBA6CFE931B635;
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 77YLNJXKXT;
+				INFOPLIST_FILE = klip/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		727DA3B4ADF579DDB2A899AE /* Build configuration list for PBXProject "klip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F72A6745B58316543C52469 /* Debug */,
+				08ED6E14C9FAD627723D42A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D1FC5FCEE23244CD29DBA7AD /* Build configuration list for PBXNativeTarget "klip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CF750055B1D56D01E189A04 /* Debug */,
+				9306D402A62452CFC1ABF0C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E13282CDAAF23AB6FB8E18E4 /* Build configuration list for PBXNativeTarget "klipTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BC52EBD3662F755883D22F9 /* Debug */,
+				56D97FF983DDD7AAF8984409 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5255442DA518FE6159CE3417 /* Project object */;
+}

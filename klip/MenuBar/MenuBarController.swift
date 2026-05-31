@@ -35,7 +35,7 @@ final class MenuBarController: NSObject {
 
     private func setupStatusItem() {
         if let button = statusItem.button {
-            button.image = NSImage(systemSymbolName: "record.circle", accessibilityDescription: "gifsnap")
+            button.image = NSImage(systemSymbolName: "record.circle", accessibilityDescription: "klip")
             button.action = #selector(togglePopover)
             button.target = self
         }
@@ -138,13 +138,13 @@ extension MenuBarController: RegionSelectorDelegate {
             do {
                 try await captureEngine.start(rect: rect, screen: screen, fps: settings.fps)
             } catch {
-                NSLog("gifsnap: capture start failed: %@", String(describing: error))
+                NSLog("klip: capture start failed: %@", String(describing: error))
                 await MainActor.run {
                     self.hud.hide()
                     self.isRecording = false
                     self.outputHandler.sendError(
                         title: "Capture failed",
-                        body: "Grant Screen Recording permission in System Settings, then quit and reopen gifsnap."
+                        body: "Grant Screen Recording permission in System Settings, then quit and reopen klip."
                     )
                 }
             }
@@ -177,7 +177,7 @@ extension MenuBarController: CaptureEngineDelegate {
                 try? FileManager.default.removeItem(at: framesDirectory)
                 try? FileManager.default.removeItem(at: outputDir)
             } catch {
-                NSLog("gifsnap: encode/save failed: %@", String(describing: error))
+                NSLog("klip: encode/save failed: %@", String(describing: error))
                 await MainActor.run {
                     self.outputHandler.sendError(
                         title: "Couldn't save GIF",
@@ -189,7 +189,7 @@ extension MenuBarController: CaptureEngineDelegate {
     }
 
     func captureEngineDidFail(_ engine: CaptureEngine, error: Error) {
-        NSLog("gifsnap: capture stream failed: %@", String(describing: error))
+        NSLog("klip: capture stream failed: %@", String(describing: error))
         DispatchQueue.main.async { [weak self] in
             self?.hud.hide()
             self?.isRecording = false
