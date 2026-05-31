@@ -1,0 +1,4 @@
+build/
+*.dmg
+DerivedData/
+.DS_Store
