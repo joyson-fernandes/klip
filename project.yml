@@ -1,0 +1,33 @@
+name: gifsnap
+options:
+  bundleIdPrefix: com.joyson
+  deploymentTarget:
+    macOS: "12.3"
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MACOSX_DEPLOYMENT_TARGET: "12.3"
+    PRODUCT_BUNDLE_IDENTIFIER: com.joyson.gifsnap
+
+targets:
+  gifsnap:
+    type: application
+    platform: macOS
+    sources:
+      - gifsnap
+    resources:
+      - path: Resources/gifski
+        buildPhase: resources
+    settings:
+      base:
+        INFOPLIST_FILE: gifsnap/Info.plist
+        CODE_SIGN_ENTITLEMENTS: gifsnap/gifsnap.entitlements
+        CODE_SIGN_IDENTITY: "-"
+
+  gifsnapTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources: gifsnapTests
+    dependencies:
+      - target: gifsnap

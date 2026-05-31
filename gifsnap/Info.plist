@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleName</key>
+    <string>gifsnap</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.joyson.gifsnap</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>12.3</string>
+    <key>LSUIElement</key>
+    <true/>
+    <key>NSScreenCaptureUsageDescription</key>
+    <string>gifsnap needs screen recording access to capture your screen as a GIF.</string>
+    <key>NSAppleEventsUsageDescription</key>
+    <string>gifsnap needs accessibility access to register a global hotkey.</string>
+    <key>NSUserNotificationAlertStyle</key>
+    <string>banner</string>
+</dict>
+</plist>
