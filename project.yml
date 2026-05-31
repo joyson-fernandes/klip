@@ -16,9 +16,9 @@ targets:
     platform: macOS
     sources:
       - gifsnap
-    resources:
       - path: Resources/gifski
         buildPhase: resources
+        type: file
     settings:
       base:
         INFOPLIST_FILE: gifsnap/Info.plist
