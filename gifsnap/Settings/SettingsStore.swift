@@ -25,9 +25,9 @@ final class SettingsStore {
     var maxWidth: Int {
         get {
             let v = defaults.integer(forKey: Key.maxWidth)
-            return v == 0 ? 800 : min(1600, max(400, v))
+            return v == 0 ? 1200 : min(2400, max(400, v))
         }
-        set { defaults.set(min(1600, max(400, newValue)), forKey: Key.maxWidth) }
+        set { defaults.set(min(2400, max(400, newValue)), forKey: Key.maxWidth) }
     }
 
     var loopCount: Int {

@@ -55,7 +55,7 @@ struct PopoverView: View {
                 Slider(value: Binding(
                     get: { Double(settings.maxWidth) },
                     set: { settings.maxWidth = Int($0) }
-                ), in: 400...1600, step: 50)
+                ), in: 400...2400, step: 50)
 
                 HStack {
                     Text("Loop").font(.callout)

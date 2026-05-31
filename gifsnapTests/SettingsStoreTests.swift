@@ -16,7 +16,7 @@ final class SettingsStoreTests: XCTestCase {
     }
 
     func testDefaultMaxWidth() {
-        XCTAssertEqual(store.maxWidth, 800)
+        XCTAssertEqual(store.maxWidth, 1200)
     }
 
     func testDefaultLoopCount() {
@@ -36,7 +36,7 @@ final class SettingsStoreTests: XCTestCase {
 
     func testClampsMaxWidth() {
         store.maxWidth = 9999
-        XCTAssertEqual(store.maxWidth, 1600)
+        XCTAssertEqual(store.maxWidth, 2400)
         store.maxWidth = 1
         XCTAssertEqual(store.maxWidth, 400)
     }

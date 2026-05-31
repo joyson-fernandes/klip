@@ -13,6 +13,7 @@
 		5C2778F75C6058CC82363B3B /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C288DB0C1DD65A50F3F29 /* SettingsStore.swift */; };
 		76CD4B7F079E5D9C47AC2C2F /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39799CD9E4275A25B8DFB187 /* PopoverView.swift */; };
 		79322EBD94EF0DF58A6226A9 /* RecordingHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81BD335F34E7B9625F0671 /* RecordingHUD.swift */; };
+		B214B0D89BC8218EB75E6409 /* gifski in Resources */ = {isa = PBXBuildFile; fileRef = D43F5DC60F2B01E50ED7DB56 /* gifski */; };
 		C283EA5403E12B37E45CDAA6 /* SettingsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD925BB70EC470CE2A2E5274 /* SettingsStoreTests.swift */; };
 		C61E82BDA2A228F9890D21FB /* OutputHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8755B0E2B8BB3D1779850368 /* OutputHandlerTests.swift */; };
 		C68054A72A9F14E6540E1A5A /* GIFEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49F58DFAF7F86F3A3A492C6 /* GIFEncoder.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		181C288DB0C1DD65A50F3F29 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		18CDF3987259C876CB1E47F5 /* gifsnapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gifsnapApp.swift; sourceTree = "<group>"; };
+		1BB5EDF839B297463CE0CB29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2CD993A6DF70FB744A16D44F /* RegionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelector.swift; sourceTree = "<group>"; };
 		39799CD9E4275A25B8DFB187 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 		4BE27E751B64502B8FA8B327 /* CaptureEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureEngine.swift; sourceTree = "<group>"; };
@@ -43,10 +45,10 @@
 		8755B0E2B8BB3D1779850368 /* OutputHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputHandlerTests.swift; sourceTree = "<group>"; };
 		C013191C3717040CA2F7CCC9 /* gifsnap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = gifsnap.entitlements; sourceTree = "<group>"; };
 		CF312CCDBBDA4AD5B5DA30EA /* GIFEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFEncoderTests.swift; sourceTree = "<group>"; };
+		D43F5DC60F2B01E50ED7DB56 /* gifski */ = {isa = PBXFileReference; path = gifski; sourceTree = "<group>"; };
 		DA81BD335F34E7B9625F0671 /* RecordingHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingHUD.swift; sourceTree = "<group>"; };
 		DD289F23152DF6527CD6CC0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DD925BB70EC470CE2A2E5274 /* SettingsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStoreTests.swift; sourceTree = "<group>"; };
-		F1E8A9B7C2D4E5F3A1B2C3D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E49F58DFAF7F86F3A3A492C6 /* GIFEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFEncoder.swift; sourceTree = "<group>"; };
 		F0AAA364EC0AA0BFD3CEACF8 /* gifsnapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gifsnapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -66,6 +68,7 @@
 			children = (
 				E342C33FE88FB3CC4D87CC40 /* gifsnap */,
 				C9252827D5BB55FCA91240BF /* gifsnapTests */,
+				B15B0F6734953E33C15B8B5D /* Resources */,
 				A9FE027A695125E4D87C6A30 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,13 +114,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B15B0F6734953E33C15B8B5D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D43F5DC60F2B01E50ED7DB56 /* gifski */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C9252827D5BB55FCA91240BF /* gifsnapTests */ = {
 			isa = PBXGroup;
 			children = (
 				CF312CCDBBDA4AD5B5DA30EA /* GIFEncoderTests.swift */,
+				1BB5EDF839B297463CE0CB29 /* Info.plist */,
 				8755B0E2B8BB3D1779850368 /* OutputHandlerTests.swift */,
 				DD925BB70EC470CE2A2E5274 /* SettingsStoreTests.swift */,
-				F1E8A9B7C2D4E5F3A1B2C3D4 /* Info.plist */,
 			);
 			path = gifsnapTests;
 			sourceTree = "<group>";
@@ -163,6 +174,7 @@
 			buildConfigurationList = 92A1B452A195D448DB311A5F /* Build configuration list for PBXNativeTarget "gifsnap" */;
 			buildPhases = (
 				4EBCDEF3CF5CABDA5B75F2B4 /* Sources */,
+				6CB7F36BFD3C98CBC7E4F9B4 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -202,6 +214,10 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					9AD154A55939EDD1A1542DC5 = {
+						DevelopmentTeam = 77YLNJXKXT;
+						ProvisioningStyle = Manual;
+					};
 				};
 			};
 			buildConfigurationList = 50DB113D4ECAF4C5F9CC83B2 /* Build configuration list for PBXProject "gifsnap" */;
@@ -223,6 +239,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6CB7F36BFD3C98CBC7E4F9B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B214B0D89BC8218EB75E6409 /* gifski in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4EBCDEF3CF5CABDA5B75F2B4 /* Sources */ = {
@@ -283,8 +310,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = gifsnap/gifsnap.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = E5B229B6341D07CBADB83D08A4BBA6CFE931B635;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 77YLNJXKXT;
 				INFOPLIST_FILE = gifsnap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -372,8 +401,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = gifsnap/gifsnap.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = E5B229B6341D07CBADB83D08A4BBA6CFE931B635;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 77YLNJXKXT;
 				INFOPLIST_FILE = gifsnap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

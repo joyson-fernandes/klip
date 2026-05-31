@@ -44,6 +44,9 @@ final class GIFEncoder {
         process.arguments = [
             "--fps", "\(fps)",
             "--width", "\(maxWidth)",
+            "--quality", "100",
+            "--motion-quality", "100",
+            "--lossy-quality", "100",
             "--repeat", "\(loopCount)",
             "-o", outputURL.path
         ] + frames.map(\.path)
