@@ -44,10 +44,11 @@ Six focused components, all Swift. No third-party Swift dependencies. One bundle
 
 ### GIFEncoder
 - Receives the temp directory path and settings (FPS, max-width, loop count)
-- Shells out to the bundled `gifski` binary:
+- Shells out to the bundled `gifski` binary via Swift's `Process`, passing frame paths explicitly (no shell glob — `Process` doesn't expand `*`):
   ```
-  gifski --fps <fps> --width <maxWidth> --repeat <loops> -o output.gif /tmp/gifsnap-<uuid>/frame-*.png
+  gifski --fps <fps> --width <maxWidth> --repeat <loops> -o output.gif frame-0001.png frame-0002.png ...
   ```
+  Frame paths are collected from the temp directory using `FileManager.contentsOfDirectory`, sorted, then passed as individual arguments.
 - Returns the path to the finished `.gif`
 - Cleans up the temp directory on completion
 
@@ -112,9 +113,10 @@ Six focused components, all Swift. No third-party Swift dependencies. One bundle
 ## Permissions Required
 
 - **Screen Recording** (`NSScreenCaptureUsageDescription`) — required for ScreenCaptureKit
+- **Accessibility** (`NSAppleEventsUsageDescription` / System Preferences > Privacy > Accessibility) — required for `NSEvent.addGlobalMonitorForEvents` to receive keyboard events from other apps
 - **Notifications** (`UNUserNotificationCenter.requestAuthorization`) — for completion alert
 
-Both requested at first launch with clear purpose strings.
+Screen Recording and Accessibility are requested at first launch with clear purpose strings. If Accessibility is denied, the hotkey falls back to the menu bar button only.
 
 ---
 
