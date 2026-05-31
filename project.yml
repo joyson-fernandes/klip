@@ -23,7 +23,9 @@ targets:
       base:
         INFOPLIST_FILE: gifsnap/Info.plist
         CODE_SIGN_ENTITLEMENTS: gifsnap/gifsnap.entitlements
-        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGN_IDENTITY: "E5B229B6341D07CBADB83D08A4BBA6CFE931B635"
+        DEVELOPMENT_TEAM: 77YLNJXKXT
 
   gifsnapTests:
     type: bundle.unit-test

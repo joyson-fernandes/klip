@@ -23,18 +23,34 @@ final class CaptureEngine: NSObject {
         frameIndex = 0
 
         let content = try await SCShareableContent.excludingDesktopWindows(false, onScreenWindowsOnly: true)
-        guard let display = content.displays.first else {
+        // Match SCDisplay to the NSScreen we captured the selection on
+        let screenID = (screen.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? NSNumber)?.uint32Value
+        guard let display = content.displays.first(where: { $0.displayID == screenID }) ?? content.displays.first else {
             throw CaptureError.noDisplay
         }
 
         let filter = SCContentFilter(display: display, excludingApplications: [], exceptingWindows: [])
 
+        // ScreenCaptureKit uses pixel-space coordinates. Convert from points using the screen's scale.
+        let scale = screen.backingScaleFactor
+        let screenFrame = screen.frame
+        // Convert AppKit (y-up, global) to display-local (y-down) coords in points first.
+        let localX = rect.minX - screenFrame.minX
+        let localY = screenFrame.maxY - rect.maxY
+        let sourceRectPixels = CGRect(
+            x: localX * scale,
+            y: localY * scale,
+            width: rect.width * scale,
+            height: rect.height * scale
+        )
+
         let config = SCStreamConfiguration()
-        config.sourceRect = convertToDisplayCoordinates(rect, screen: screen)
-        config.width = Int(rect.width)
-        config.height = Int(rect.height)
+        config.sourceRect = sourceRectPixels
+        config.width = Int(rect.width * scale)
+        config.height = Int(rect.height * scale)
         config.minimumFrameInterval = CMTime(value: 1, timescale: CMTimeScale(fps))
-        config.queueDepth = 5
+        config.queueDepth = 6
+        config.showsCursor = true
 
         let stream = SCStream(filter: filter, configuration: config, delegate: self)
         self.stream = stream
@@ -46,30 +62,34 @@ final class CaptureEngine: NSObject {
         guard let stream = stream else { return }
         try? await stream.stopCapture()
         self.stream = nil
+        // Let in-flight frames finish writing on the capture queue before notifying
+        await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
+            queue.async { continuation.resume() }
+        }
         if let dir = framesDirectory {
             delegate?.captureEngineDidFinish(self, framesDirectory: dir)
         }
-    }
-
-    private func convertToDisplayCoordinates(_ rect: CGRect, screen: NSScreen) -> CGRect {
-        let screenFrame = screen.frame
-        let y = screenFrame.maxY - rect.maxY
-        return CGRect(x: rect.minX - screenFrame.minX, y: y, width: rect.width, height: rect.height)
     }
 }
 
 extension CaptureEngine: SCStreamOutput {
     func stream(_ stream: SCStream, didOutputSampleBuffer sampleBuffer: CMSampleBuffer, of type: SCStreamOutputType) {
         guard type == .screen,
+              sampleBuffer.isValid,
+              let attachments = CMSampleBufferGetSampleAttachmentsArray(sampleBuffer, createIfNecessary: false) as? [[SCStreamFrameInfo: Any]],
+              let statusRaw = attachments.first?[.status] as? Int,
+              let status = SCFrameStatus(rawValue: statusRaw),
+              status == .complete,
               let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
 
         let ciImage = CIImage(cvImageBuffer: imageBuffer)
         let context = CIContext()
-        guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent) else { return }
+        guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent),
+              let framesDir = framesDirectory else { return }
 
         let idx = frameIndex
         frameIndex += 1
-        let framePath = framesDirectory!.appendingPathComponent(String(format: "frame-%04d.png", idx))
+        let framePath = framesDir.appendingPathComponent(String(format: "frame-%04d.png", idx))
 
         guard let dest = CGImageDestinationCreateWithURL(framePath as CFURL, "public.png" as CFString, 1, nil) else { return }
         CGImageDestinationAddImage(dest, cgImage, nil)
