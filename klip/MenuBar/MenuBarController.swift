@@ -38,16 +38,9 @@ final class MenuBarController: NSObject {
 
     private func setupStatusItem() {
         if let button = statusItem.button {
-            if let icon = NSImage(named: "AppIcon") ?? NSApplication.shared.applicationIconImage {
-                let resized = NSImage(size: NSSize(width: 18, height: 18))
-                resized.lockFocus()
-                icon.draw(in: NSRect(x: 0, y: 0, width: 18, height: 18))
-                resized.unlockFocus()
-                resized.isTemplate = false  // preserve colours
-                button.image = resized
-            } else {
-                button.image = NSImage(systemSymbolName: "record.circle", accessibilityDescription: "klip")
-            }
+            let image = NSImage(systemSymbolName: "camera.viewfinder", accessibilityDescription: "klip")
+            image?.isTemplate = true  // adapts to dark/light menu bar
+            button.image = image
             button.action = #selector(togglePopover)
             button.target = self
         }
