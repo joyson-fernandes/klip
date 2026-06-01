@@ -13,7 +13,8 @@ final class MenuBarController: NSObject {
     private let regionSelector = RegionSelector()
     private let hud = RecordingHUD()
     private var isRecording = false
-    private var hotKeyRef: EventHotKeyRef?
+    private let hotkeyManager = HotkeyManager()
+    private var pendingCaptureKind: HotkeyKind = .gif
     private var observableSettings: SettingsStoreObservable!
     private var clickOutsideMonitor: Any?
 
@@ -21,7 +22,7 @@ final class MenuBarController: NSObject {
         super.init()
         setupStatusItem()
         setupPopover()
-        setupHotKey()
+        bindHotkeys()
         regionSelector.delegate = self
         captureEngine.delegate = self
         outputHandler.requestNotificationPermission()
@@ -30,7 +31,7 @@ final class MenuBarController: NSObject {
     }
 
     deinit {
-        if let ref = hotKeyRef { UnregisterEventHotKey(ref) }
+        hotkeyManager.unbindAll()
     }
 
     private func setupStatusItem() {
@@ -55,19 +56,23 @@ final class MenuBarController: NSObject {
         popover.animates = false
     }
 
-    private func setupHotKey() {
-        var eventType = EventTypeSpec(eventClass: OSType(kEventClassKeyboard), eventKind: OSType(kEventHotKeyPressed))
-        InstallEventHandler(GetApplicationEventTarget(), { _, event, userData -> OSStatus in
-            guard let userData = userData else { return noErr }
-            let controller = Unmanaged<MenuBarController>.fromOpaque(userData).takeUnretainedValue()
-            controller.handleHotKey()
-            return noErr
-        }, 1, &eventType, Unmanaged.passUnretained(self).toOpaque(), nil)
+    private func bindHotkeys() {
+        let result = hotkeyManager.bind(
+            screenshot: settings.screenshotHotkey,
+            gif: settings.gifHotkey
+        ) { [weak self] kind in
+            self?.handleHotkey(kind: kind)
+        }
+        if !result.screenshotRegistered && settings.screenshotHotkey != nil {
+            outputHandler.sendError(title: "Screenshot hotkey unavailable", body: "Could not register the configured combo (likely taken by another app).")
+        }
+        if !result.gifRegistered && settings.gifHotkey != nil {
+            outputHandler.sendError(title: "GIF hotkey unavailable", body: "Could not register the configured combo (likely taken by another app).")
+        }
+    }
 
-        let hotKeyID = EventHotKeyID(signature: OSType(0x67736e70), id: 1)
-        let gKeyCode: UInt32 = 5
-        let modifiers: UInt32 = UInt32(cmdKey | shiftKey)
-        RegisterEventHotKey(gKeyCode, modifiers, hotKeyID, GetApplicationEventTarget(), 0, &hotKeyRef)
+    func rebindHotkeysAfterSettingsChange() {
+        bindHotkeys()
     }
 
     private func requestScreenRecordingPermission() {
@@ -96,15 +101,13 @@ final class MenuBarController: NSObject {
         popover.performClose(nil)
     }
 
-    func handleHotKey() {
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            if self.isRecording {
-                self.stopRecording()
-            } else {
-                self.startCaptureFlow()
-            }
+    func handleHotkey(kind: HotkeyKind) {
+        if isRecording {
+            stopRecording()
+            return
         }
+        pendingCaptureKind = kind
+        startCaptureFlow()
     }
 
     private func selectSaveFolder() {
