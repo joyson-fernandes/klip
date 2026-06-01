@@ -16,6 +16,12 @@ final class EditorWindowController: NSWindowController, NSWindowDelegate {
         scrollView.hasHorizontalScroller = true
         scrollView.hasVerticalScroller = true
         scrollView.backgroundColor = NSColor(red: 0.11, green: 0.11, blue: 0.12, alpha: 1)
+        scrollView.drawsBackground = true
+        // Centering clip so the canvas sits in the middle when window > canvas
+        let clipView = CenteringClipView()
+        clipView.backgroundColor = NSColor(red: 0.11, green: 0.11, blue: 0.12, alpha: 1)
+        clipView.drawsBackground = true
+        scrollView.contentView = clipView
         let canvas = AnnotationCanvas(state: state)
         scrollView.documentView = canvas
 
@@ -156,5 +162,22 @@ private struct TitlebarButtons: View {
                 .keyboardShortcut("s", modifiers: [.command])
         }
         .padding(.horizontal, 10)
+    }
+}
+
+/// NSClipView that centers its document view when the document is smaller than the clip.
+final class CenteringClipView: NSClipView {
+    override func constrainBoundsRect(_ proposedBounds: NSRect) -> NSRect {
+        var rect = super.constrainBoundsRect(proposedBounds)
+        guard let doc = documentView else { return rect }
+
+        let docFrame = doc.frame
+        if rect.width > docFrame.width {
+            rect.origin.x = (docFrame.width - rect.width) / 2
+        }
+        if rect.height > docFrame.height {
+            rect.origin.y = (docFrame.height - rect.height) / 2
+        }
+        return rect
     }
 }
