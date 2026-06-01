@@ -15,6 +15,7 @@
 		2B25EAFC944AFB50101F940B /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8EEE520481CF18D7B90FCA65 /* AppIcon.icns */; };
 		3DB1D7DD6CCF9E35E8DA318D /* EditorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFE693742F2F2CCD500E91D /* EditorState.swift */; };
 		450FD66FBEDF86CBA74700AE /* KeyComboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E4FC51755AAC25F8686590 /* KeyComboTests.swift */; };
+		48C0C0E6C1A7062B37D5204D /* QuickAccessThumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30673FF0A9B2C7E3B9434FCA /* QuickAccessThumb.swift */; };
 		5904E6ADDA1F049FDFBBB796 /* RegionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56DE96B4C91EFBC234B27 /* RegionSelector.swift */; };
 		72BEC1E819421C463955A397 /* ScreenshotCaptureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3F2FA34D685C5C01B2DFBE /* ScreenshotCaptureTests.swift */; };
 		76DB15BFDBD53D4B932C486F /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198142BAF1F763F652C09877 /* ToolbarView.swift */; };
@@ -60,6 +61,7 @@
 		173A9A30ED66CF46243211BD /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
 		198142BAF1F763F652C09877 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		2551B95516E21D092C07DA04 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		30673FF0A9B2C7E3B9434FCA /* QuickAccessThumb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAccessThumb.swift; sourceTree = "<group>"; };
 		357FFE90DA5B1D0E0B465276 /* AnnotationCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationCanvas.swift; sourceTree = "<group>"; };
 		35C56DE96B4C91EFBC234B27 /* RegionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelector.swift; sourceTree = "<group>"; };
 		43B403D183A96841CD747D0F /* HotkeyRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyRecorderView.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				43B403D183A96841CD747D0F /* HotkeyRecorderView.swift */,
 				039D6C43A383376AD2E802B0 /* PopoverView.swift */,
+				30673FF0A9B2C7E3B9434FCA /* QuickAccessThumb.swift */,
 				ECD381A1007254E11A41E9EB /* RecordingHUD.swift */,
 			);
 			path = UI;
@@ -341,6 +344,7 @@
 				87E7ACB3715717D788C947B8 /* MenuBarController.swift in Sources */,
 				AB98466E00C3A44723B44C4F /* OutputHandler.swift in Sources */,
 				8541627722B8A50C6156FD62 /* PopoverView.swift in Sources */,
+				48C0C0E6C1A7062B37D5204D /* QuickAccessThumb.swift in Sources */,
 				DBA4CE76410A2F5B95E412C5 /* RecordingHUD.swift in Sources */,
 				5904E6ADDA1F049FDFBBB796 /* RegionSelector.swift in Sources */,
 				D4967D66AE51F64DBAA36C27 /* ScreenshotCapture.swift in Sources */,
