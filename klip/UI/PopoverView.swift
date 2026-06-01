@@ -134,7 +134,7 @@ struct PopoverView: View {
                     .foregroundColor(.secondary)
                     .font(.callout)
                 Spacer()
-                Text("v1.0.0").font(.caption).foregroundColor(.secondary)
+                Text("v1.1.0").font(.caption).foregroundColor(.secondary)
             }
             .padding()
         }
