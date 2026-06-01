@@ -11,6 +11,7 @@
 		134EA97A9EE913A31A4DF556 /* AnnotationRendererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9652D244EEFC9A7B0F24B630 /* AnnotationRendererTests.swift */; };
 		14B72482BC14EB6F75439EC5 /* SettingsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88327D343439B77B39BD30D1 /* SettingsStoreTests.swift */; };
 		164E14125CCBA381CA00AC94 /* OutputHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0934E72B2161DEEF1D469A64 /* OutputHandlerTests.swift */; };
+		19703B6FAB2DE05B388D4B2F /* AnnotationCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357FFE90DA5B1D0E0B465276 /* AnnotationCanvas.swift */; };
 		2B25EAFC944AFB50101F940B /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8EEE520481CF18D7B90FCA65 /* AppIcon.icns */; };
 		3DB1D7DD6CCF9E35E8DA318D /* EditorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFE693742F2F2CCD500E91D /* EditorState.swift */; };
 		450FD66FBEDF86CBA74700AE /* KeyComboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E4FC51755AAC25F8686590 /* KeyComboTests.swift */; };
@@ -55,6 +56,7 @@
 		10320BB396638AE32CEB06EC /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
 		173A9A30ED66CF46243211BD /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
 		2551B95516E21D092C07DA04 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		357FFE90DA5B1D0E0B465276 /* AnnotationCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationCanvas.swift; sourceTree = "<group>"; };
 		35C56DE96B4C91EFBC234B27 /* RegionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelector.swift; sourceTree = "<group>"; };
 		43B403D183A96841CD747D0F /* HotkeyRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyRecorderView.swift; sourceTree = "<group>"; };
 		44BECF7A4AFB7A911280389E /* GIFEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFEncoderTests.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				2551B95516E21D092C07DA04 /* Annotation.swift */,
+				357FFE90DA5B1D0E0B465276 /* AnnotationCanvas.swift */,
 				A8CD84072679F7AD423D326E /* AnnotationRenderer.swift */,
 				BFFE693742F2F2CCD500E91D /* EditorState.swift */,
 			);
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04D3B150967B3CD65A17DE10 /* Annotation.swift in Sources */,
+				19703B6FAB2DE05B388D4B2F /* AnnotationCanvas.swift in Sources */,
 				EA8F86E99982576FC9E8FA84 /* AnnotationRenderer.swift in Sources */,
 				DF57A296CC1EBF68885366A8 /* CaptureEngine.swift in Sources */,
 				3DB1D7DD6CCF9E35E8DA318D /* EditorState.swift in Sources */,
