@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		14B72482BC14EB6F75439EC5 /* SettingsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88327D343439B77B39BD30D1 /* SettingsStoreTests.swift */; };
 		164E14125CCBA381CA00AC94 /* OutputHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0934E72B2161DEEF1D469A64 /* OutputHandlerTests.swift */; };
+		2B25EAFC944AFB50101F940B /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8EEE520481CF18D7B90FCA65 /* AppIcon.icns */; };
 		5904E6ADDA1F049FDFBBB796 /* RegionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56DE96B4C91EFBC234B27 /* RegionSelector.swift */; };
 		8541627722B8A50C6156FD62 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039D6C43A383376AD2E802B0 /* PopoverView.swift */; };
 		87E7ACB3715717D788C947B8 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A9A30ED66CF46243211BD /* MenuBarController.swift */; };
@@ -43,6 +44,7 @@
 		44BECF7A4AFB7A911280389E /* GIFEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFEncoderTests.swift; sourceTree = "<group>"; };
 		5DA76126F5062B9D9B2D161E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		88327D343439B77B39BD30D1 /* SettingsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStoreTests.swift; sourceTree = "<group>"; };
+		8EEE520481CF18D7B90FCA65 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
 		AEBD743578955BC074EDD1EC /* gifski */ = {isa = PBXFileReference; path = gifski; sourceTree = "<group>"; };
 		B3547DE7BE4C584C184A4825 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		B9AE13EBD1AF652D84083C95 /* klipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = klipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 		8581557C32893608F808DD8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8EEE520481CF18D7B90FCA65 /* AppIcon.icns */,
 				AEBD743578955BC074EDD1EC /* gifski */,
 			);
 			path = Resources;
@@ -245,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B25EAFC944AFB50101F940B /* AppIcon.icns in Resources */,
 				FFC7310A45FEFFA9642CFC00 /* gifski in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

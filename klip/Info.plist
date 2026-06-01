@@ -24,5 +24,7 @@
     <string>klip needs accessibility access to register a global hotkey.</string>
     <key>NSUserNotificationAlertStyle</key>
     <string>banner</string>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
 </dict>
 </plist>
