@@ -9,13 +9,18 @@ struct PopoverView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 10) {
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(Color(red: 0.37, green: 0.36, blue: 0.90))
+                Image(nsImage: NSImage(named: "AppIcon") ?? NSImage())
+                    .resizable()
+                    .interpolation(.high)
                     .frame(width: 32, height: 32)
-                    .overlay(Text("🎞").font(.system(size: 18)))
                 VStack(alignment: .leading, spacing: 2) {
                     Text("klip").font(.headline)
-                    Text("⌘⇧G to capture").font(.caption).foregroundColor(.secondary)
+                    Text(
+                        "\(settings.screenshotHotkey?.displayString ?? "—") screenshot   ·   "
+                        + "\(settings.gifHotkey?.displayString ?? "—") GIF"
+                    )
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
                 }
             }
             .padding()
