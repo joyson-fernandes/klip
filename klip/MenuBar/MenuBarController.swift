@@ -17,6 +17,8 @@ final class MenuBarController: NSObject {
     private var pendingCaptureKind: HotkeyKind = .gif
     private var observableSettings: SettingsStoreObservable!
     private var clickOutsideMonitor: Any?
+    private var activeEditor: EditorWindowController?
+    private let thumb = QuickAccessThumb()
 
     override init() {
         super.init()
@@ -141,7 +143,7 @@ extension MenuBarController: RegionSelectorDelegate {
         switch pendingCaptureKind {
         case .gif:
             isRecording = true
-            hud.show(near: rect)
+            hud.show(near: rect, stopHotkeyLabel: settings.gifHotkey?.displayString ?? "⌘⇧G")
             Task {
                 do {
                     try await captureEngine.start(rect: rect, screen: screen, fps: settings.fps)
@@ -162,17 +164,31 @@ extension MenuBarController: RegionSelectorDelegate {
                 outputHandler.sendError(title: "Screenshot failed", body: "Could not capture the selected region.")
                 return
             }
-            do {
-                let savedURL = try outputHandler.savePNG(image: image, to: settings.saveFolder)
-                outputHandler.copyPNGToClipboard(image: image)
-                outputHandler.sendNotification(filename: savedURL.lastPathComponent)
-            } catch {
-                outputHandler.sendError(title: "Couldn't save screenshot", body: String(describing: error))
-            }
+            openEditor(for: image)
         }
     }
 
     func regionSelectorDidCancel(_ selector: RegionSelector) {}
+
+    private func openEditor(for image: CGImage) {
+        activeEditor = EditorWindowController(
+            image: image,
+            onSave: { [weak self] pngData in
+                guard let self else { return }
+                do {
+                    let savedURL = try self.outputHandler.savePNGData(pngData, to: self.settings.saveFolder)
+                    self.outputHandler.copyPNGDataToClipboard(pngData)
+                    self.outputHandler.sendNotification(filename: savedURL.lastPathComponent)
+                    let preview = NSBitmapImageRep(data: pngData)?.cgImage
+                    self.thumb.show(fileURL: savedURL, preview: preview)
+                } catch {
+                    self.outputHandler.sendError(title: "Couldn't save screenshot", body: String(describing: error))
+                }
+                self.activeEditor = nil
+            },
+            onCancel: { [weak self] in self?.activeEditor = nil }
+        )
+    }
 }
 
 extension MenuBarController: CaptureEngineDelegate {
@@ -194,6 +210,11 @@ extension MenuBarController: CaptureEngineDelegate {
                 let savedURL = try outputHandler.save(gifURL: outputURL, to: settings.saveFolder)
                 try outputHandler.copyToClipboard(gifURL: savedURL)
                 outputHandler.sendNotification(filename: savedURL.lastPathComponent)
+
+                let preview = NSImage(contentsOf: savedURL)?
+                    .representations.first
+                    .flatMap { ($0 as? NSBitmapImageRep)?.cgImage }
+                await MainActor.run { self.thumb.show(fileURL: savedURL, preview: preview) }
 
                 try? FileManager.default.removeItem(at: framesDirectory)
                 try? FileManager.default.removeItem(at: outputDir)
