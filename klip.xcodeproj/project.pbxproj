@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04D3B150967B3CD65A17DE10 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2551B95516E21D092C07DA04 /* Annotation.swift */; };
 		14B72482BC14EB6F75439EC5 /* SettingsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88327D343439B77B39BD30D1 /* SettingsStoreTests.swift */; };
 		164E14125CCBA381CA00AC94 /* OutputHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0934E72B2161DEEF1D469A64 /* OutputHandlerTests.swift */; };
 		2B25EAFC944AFB50101F940B /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8EEE520481CF18D7B90FCA65 /* AppIcon.icns */; };
+		3DB1D7DD6CCF9E35E8DA318D /* EditorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFE693742F2F2CCD500E91D /* EditorState.swift */; };
 		450FD66FBEDF86CBA74700AE /* KeyComboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E4FC51755AAC25F8686590 /* KeyComboTests.swift */; };
 		5904E6ADDA1F049FDFBBB796 /* RegionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56DE96B4C91EFBC234B27 /* RegionSelector.swift */; };
 		72BEC1E819421C463955A397 /* ScreenshotCaptureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3F2FA34D685C5C01B2DFBE /* ScreenshotCaptureTests.swift */; };
@@ -17,6 +19,7 @@
 		8541627722B8A50C6156FD62 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039D6C43A383376AD2E802B0 /* PopoverView.swift */; };
 		860C81E4DB1B7EB0624BB6EC /* KeyCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9736879C65E8C3240485C0 /* KeyCombo.swift */; };
 		87E7ACB3715717D788C947B8 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A9A30ED66CF46243211BD /* MenuBarController.swift */; };
+		9555BD3D96BBA80FC4EAF45E /* EditorStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003DAEA03395771FE1EEE3A3 /* EditorStateTests.swift */; };
 		AB98466E00C3A44723B44C4F /* OutputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDEF1107F000D227B65FEA8 /* OutputHandler.swift */; };
 		CDC1915F6FDC481579D81A48 /* GIFEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BECF7A4AFB7A911280389E /* GIFEncoderTests.swift */; };
 		D4967D66AE51F64DBAA36C27 /* ScreenshotCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA1B2698A239DA8614E12F /* ScreenshotCapture.swift */; };
@@ -41,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		003DAEA03395771FE1EEE3A3 /* EditorStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorStateTests.swift; sourceTree = "<group>"; };
 		010F838C7F2EF4A06F057840 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		039D6C43A383376AD2E802B0 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 		0725B5405DBA97EC7B7BE5C4 /* GIFEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFEncoder.swift; sourceTree = "<group>"; };
@@ -48,6 +52,7 @@
 		102AE18947A301B3B702AD0E /* klip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = klip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10320BB396638AE32CEB06EC /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
 		173A9A30ED66CF46243211BD /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
+		2551B95516E21D092C07DA04 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		35C56DE96B4C91EFBC234B27 /* RegionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelector.swift; sourceTree = "<group>"; };
 		43B403D183A96841CD747D0F /* HotkeyRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyRecorderView.swift; sourceTree = "<group>"; };
 		44BECF7A4AFB7A911280389E /* GIFEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFEncoderTests.swift; sourceTree = "<group>"; };
@@ -61,6 +66,7 @@
 		B0E4FC51755AAC25F8686590 /* KeyComboTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyComboTests.swift; sourceTree = "<group>"; };
 		B3547DE7BE4C584C184A4825 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		B9AE13EBD1AF652D84083C95 /* klipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = klipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFFE693742F2F2CCD500E91D /* EditorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorState.swift; sourceTree = "<group>"; };
 		C398FEB3B4DE1EBB5C2EFFED /* CaptureEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureEngine.swift; sourceTree = "<group>"; };
 		C72A438C8C3468419DC595D3 /* klip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = klip.entitlements; sourceTree = "<group>"; };
 		C8181C17E70F7B3EE80B86A8 /* HotkeyManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManagerTests.swift; sourceTree = "<group>"; };
@@ -112,6 +118,7 @@
 		2B5AF89626BE8B5F5D81759B /* klipTests */ = {
 			isa = PBXGroup;
 			children = (
+				003DAEA03395771FE1EEE3A3 /* EditorStateTests.swift */,
 				44BECF7A4AFB7A911280389E /* GIFEncoderTests.swift */,
 				C8181C17E70F7B3EE80B86A8 /* HotkeyManagerTests.swift */,
 				010F838C7F2EF4A06F057840 /* Info.plist */,
@@ -123,6 +130,15 @@
 			path = klipTests;
 			sourceTree = "<group>";
 		};
+		45C459EB11EF6C73CAA08E13 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				2551B95516E21D092C07DA04 /* Annotation.swift */,
+				BFFE693742F2F2CCD500E91D /* EditorState.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
 		53B89A8587E05CF3D1D779B6 /* klip */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +146,7 @@
 				C72A438C8C3468419DC595D3 /* klip.entitlements */,
 				9F3A2DA35C763CAAF4DF3519 /* App */,
 				21633022EB28D5F84C35EE2C /* Capture */,
+				45C459EB11EF6C73CAA08E13 /* Editor */,
 				8F8D9AADFB1D4D56DEDF6122 /* Encoding */,
 				84E3BBC153D8F871F0653A4F /* MenuBar */,
 				DEB2F0E51330B48293B66391 /* Output */,
@@ -281,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9555BD3D96BBA80FC4EAF45E /* EditorStateTests.swift in Sources */,
 				CDC1915F6FDC481579D81A48 /* GIFEncoderTests.swift in Sources */,
 				E191F93FB44B63EDB1D93919 /* HotkeyManagerTests.swift in Sources */,
 				450FD66FBEDF86CBA74700AE /* KeyComboTests.swift in Sources */,
@@ -294,7 +312,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04D3B150967B3CD65A17DE10 /* Annotation.swift in Sources */,
 				DF57A296CC1EBF68885366A8 /* CaptureEngine.swift in Sources */,
+				3DB1D7DD6CCF9E35E8DA318D /* EditorState.swift in Sources */,
 				DA3A08B6369CC4692E71F18C /* GIFEncoder.swift in Sources */,
 				77F2F1016FA7C824952E2036 /* HotkeyManager.swift in Sources */,
 				F0FC6F38F10BF99FBC5D5F7D /* HotkeyRecorderView.swift in Sources */,
