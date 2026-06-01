@@ -17,6 +17,7 @@
 		450FD66FBEDF86CBA74700AE /* KeyComboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E4FC51755AAC25F8686590 /* KeyComboTests.swift */; };
 		5904E6ADDA1F049FDFBBB796 /* RegionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56DE96B4C91EFBC234B27 /* RegionSelector.swift */; };
 		72BEC1E819421C463955A397 /* ScreenshotCaptureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3F2FA34D685C5C01B2DFBE /* ScreenshotCaptureTests.swift */; };
+		76DB15BFDBD53D4B932C486F /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198142BAF1F763F652C09877 /* ToolbarView.swift */; };
 		77F2F1016FA7C824952E2036 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10320BB396638AE32CEB06EC /* HotkeyManager.swift */; };
 		8541627722B8A50C6156FD62 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039D6C43A383376AD2E802B0 /* PopoverView.swift */; };
 		860C81E4DB1B7EB0624BB6EC /* KeyCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9736879C65E8C3240485C0 /* KeyCombo.swift */; };
@@ -55,6 +56,7 @@
 		102AE18947A301B3B702AD0E /* klip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = klip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10320BB396638AE32CEB06EC /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
 		173A9A30ED66CF46243211BD /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
+		198142BAF1F763F652C09877 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		2551B95516E21D092C07DA04 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		357FFE90DA5B1D0E0B465276 /* AnnotationCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationCanvas.swift; sourceTree = "<group>"; };
 		35C56DE96B4C91EFBC234B27 /* RegionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelector.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				357FFE90DA5B1D0E0B465276 /* AnnotationCanvas.swift */,
 				A8CD84072679F7AD423D326E /* AnnotationRenderer.swift */,
 				BFFE693742F2F2CCD500E91D /* EditorState.swift */,
+				198142BAF1F763F652C09877 /* ToolbarView.swift */,
 			);
 			path = Editor;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				5904E6ADDA1F049FDFBBB796 /* RegionSelector.swift in Sources */,
 				D4967D66AE51F64DBAA36C27 /* ScreenshotCapture.swift in Sources */,
 				D637965B8A5AF065796532B0 /* SettingsStore.swift in Sources */,
+				76DB15BFDBD53D4B932C486F /* ToolbarView.swift in Sources */,
 				D955D91D579FDAD00674E196 /* klipApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
