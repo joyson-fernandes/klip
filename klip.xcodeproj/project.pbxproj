@@ -10,8 +10,10 @@
 		14B72482BC14EB6F75439EC5 /* SettingsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88327D343439B77B39BD30D1 /* SettingsStoreTests.swift */; };
 		164E14125CCBA381CA00AC94 /* OutputHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0934E72B2161DEEF1D469A64 /* OutputHandlerTests.swift */; };
 		2B25EAFC944AFB50101F940B /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8EEE520481CF18D7B90FCA65 /* AppIcon.icns */; };
+		450FD66FBEDF86CBA74700AE /* KeyComboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E4FC51755AAC25F8686590 /* KeyComboTests.swift */; };
 		5904E6ADDA1F049FDFBBB796 /* RegionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56DE96B4C91EFBC234B27 /* RegionSelector.swift */; };
 		8541627722B8A50C6156FD62 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039D6C43A383376AD2E802B0 /* PopoverView.swift */; };
+		860C81E4DB1B7EB0624BB6EC /* KeyCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9736879C65E8C3240485C0 /* KeyCombo.swift */; };
 		87E7ACB3715717D788C947B8 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A9A30ED66CF46243211BD /* MenuBarController.swift */; };
 		AB98466E00C3A44723B44C4F /* OutputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDEF1107F000D227B65FEA8 /* OutputHandler.swift */; };
 		CDC1915F6FDC481579D81A48 /* GIFEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BECF7A4AFB7A911280389E /* GIFEncoderTests.swift */; };
@@ -42,10 +44,12 @@
 		173A9A30ED66CF46243211BD /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
 		35C56DE96B4C91EFBC234B27 /* RegionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelector.swift; sourceTree = "<group>"; };
 		44BECF7A4AFB7A911280389E /* GIFEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFEncoderTests.swift; sourceTree = "<group>"; };
+		5C9736879C65E8C3240485C0 /* KeyCombo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombo.swift; sourceTree = "<group>"; };
 		5DA76126F5062B9D9B2D161E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		88327D343439B77B39BD30D1 /* SettingsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStoreTests.swift; sourceTree = "<group>"; };
 		8EEE520481CF18D7B90FCA65 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
 		AEBD743578955BC074EDD1EC /* gifski */ = {isa = PBXFileReference; path = gifski; sourceTree = "<group>"; };
+		B0E4FC51755AAC25F8686590 /* KeyComboTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyComboTests.swift; sourceTree = "<group>"; };
 		B3547DE7BE4C584C184A4825 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		B9AE13EBD1AF652D84083C95 /* klipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = klipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C398FEB3B4DE1EBB5C2EFFED /* CaptureEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureEngine.swift; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 			children = (
 				44BECF7A4AFB7A911280389E /* GIFEncoderTests.swift */,
 				010F838C7F2EF4A06F057840 /* Info.plist */,
+				B0E4FC51755AAC25F8686590 /* KeyComboTests.swift */,
 				0934E72B2161DEEF1D469A64 /* OutputHandlerTests.swift */,
 				88327D343439B77B39BD30D1 /* SettingsStoreTests.swift */,
 			);
@@ -156,6 +161,7 @@
 		DAFF47037B5FC858362486B8 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				5C9736879C65E8C3240485C0 /* KeyCombo.swift */,
 				B3547DE7BE4C584C184A4825 /* SettingsStore.swift */,
 			);
 			path = Settings;
@@ -261,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDC1915F6FDC481579D81A48 /* GIFEncoderTests.swift in Sources */,
+				450FD66FBEDF86CBA74700AE /* KeyComboTests.swift in Sources */,
 				164E14125CCBA381CA00AC94 /* OutputHandlerTests.swift in Sources */,
 				14B72482BC14EB6F75439EC5 /* SettingsStoreTests.swift in Sources */,
 			);
@@ -272,6 +279,7 @@
 			files = (
 				DF57A296CC1EBF68885366A8 /* CaptureEngine.swift in Sources */,
 				DA3A08B6369CC4692E71F18C /* GIFEncoder.swift in Sources */,
+				860C81E4DB1B7EB0624BB6EC /* KeyCombo.swift in Sources */,
 				87E7ACB3715717D788C947B8 /* MenuBarController.swift in Sources */,
 				AB98466E00C3A44723B44C4F /* OutputHandler.swift in Sources */,
 				8541627722B8A50C6156FD62 /* PopoverView.swift in Sources */,
