@@ -45,6 +45,9 @@ final class MenuBarController: NSObject {
     private func setupPopover() {
         observableSettings = SettingsStoreObservable(store: settings)
         observableSettings.load()
+        observableSettings.onHotkeyChanged = { [weak self] in
+            self?.rebindHotkeysAfterSettingsChange()
+        }
         let view = PopoverView(
             settings: observableSettings,
             onStartCapture: { [weak self] in self?.startCaptureFlow() },

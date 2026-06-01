@@ -14,6 +14,7 @@
 		5904E6ADDA1F049FDFBBB796 /* RegionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56DE96B4C91EFBC234B27 /* RegionSelector.swift */; };
 		77F2F1016FA7C824952E2036 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10320BB396638AE32CEB06EC /* HotkeyManager.swift */; };
 		8541627722B8A50C6156FD62 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039D6C43A383376AD2E802B0 /* PopoverView.swift */; };
+		A1B2C3D4E5F6A1B2C3D4E5F6 /* HotkeyRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E5D4C3B2A1F6E5D4C3B2A1 /* HotkeyRecorderView.swift */; };
 		860C81E4DB1B7EB0624BB6EC /* KeyCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9736879C65E8C3240485C0 /* KeyCombo.swift */; };
 		87E7ACB3715717D788C947B8 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A9A30ED66CF46243211BD /* MenuBarController.swift */; };
 		AB98466E00C3A44723B44C4F /* OutputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDEF1107F000D227B65FEA8 /* OutputHandler.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		010F838C7F2EF4A06F057840 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		039D6C43A383376AD2E802B0 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
+		F6E5D4C3B2A1F6E5D4C3B2A1 /* HotkeyRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyRecorderView.swift; sourceTree = "<group>"; };
 		0725B5405DBA97EC7B7BE5C4 /* GIFEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFEncoder.swift; sourceTree = "<group>"; };
 		0934E72B2161DEEF1D469A64 /* OutputHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputHandlerTests.swift; sourceTree = "<group>"; };
 		102AE18947A301B3B702AD0E /* klip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = klip.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +97,7 @@
 		27E41EB14D79F5E69D8A0506 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F6E5D4C3B2A1F6E5D4C3B2A1 /* HotkeyRecorderView.swift */,
 				039D6C43A383376AD2E802B0 /* PopoverView.swift */,
 				ECD381A1007254E11A41E9EB /* RecordingHUD.swift */,
 			);
@@ -290,6 +293,7 @@
 				860C81E4DB1B7EB0624BB6EC /* KeyCombo.swift in Sources */,
 				87E7ACB3715717D788C947B8 /* MenuBarController.swift in Sources */,
 				AB98466E00C3A44723B44C4F /* OutputHandler.swift in Sources */,
+				A1B2C3D4E5F6A1B2C3D4E5F6 /* HotkeyRecorderView.swift in Sources */,
 				8541627722B8A50C6156FD62 /* PopoverView.swift in Sources */,
 				DBA4CE76410A2F5B95E412C5 /* RecordingHUD.swift in Sources */,
 				5904E6ADDA1F049FDFBBB796 /* RegionSelector.swift in Sources */,

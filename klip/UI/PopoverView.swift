@@ -87,6 +87,47 @@ struct PopoverView: View {
 
             Divider().padding(.top, 12)
 
+            VStack(alignment: .leading, spacing: 10) {
+                Text("HOTKEYS")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .padding(.top, 8)
+
+                HStack {
+                    Text("Screenshot").font(.callout)
+                    Spacer()
+                    HotkeyRecorderView(combo: $settings.screenshotHotkey)
+                        .frame(width: 88, height: 22)
+                    Button(action: { settings.screenshotHotkey = nil }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.secondary)
+                    }
+                    .buttonStyle(.plain)
+                }
+                HStack {
+                    Text("Record GIF").font(.callout)
+                    Spacer()
+                    HotkeyRecorderView(combo: $settings.gifHotkey)
+                        .frame(width: 88, height: 22)
+                    Button(action: { settings.gifHotkey = nil }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.secondary)
+                    }
+                    .buttonStyle(.plain)
+                }
+                Button("Reset to defaults") {
+                    settings.screenshotHotkey = KeyCombo.defaultScreenshot
+                    settings.gifHotkey = KeyCombo.defaultGif
+                }
+                .buttonStyle(.plain)
+                .foregroundColor(.accentColor)
+                .font(.caption)
+                .padding(.top, 2)
+            }
+            .padding(.horizontal)
+
+            Divider().padding(.top, 12)
+
             HStack {
                 Button("Quit", action: onQuit)
                     .buttonStyle(.plain)
@@ -110,6 +151,13 @@ final class SettingsStoreObservable: ObservableObject {
     @Published var fps: Int = 10 { didSet { store.fps = fps } }
     @Published var maxWidth: Int = 800 { didSet { store.maxWidth = maxWidth } }
     @Published var loopCount: Int = 0 { didSet { store.loopCount = loopCount } }
+    @Published var screenshotHotkey: KeyCombo? = KeyCombo.defaultScreenshot {
+        didSet { store.screenshotHotkey = screenshotHotkey; onHotkeyChanged?() }
+    }
+    @Published var gifHotkey: KeyCombo? = KeyCombo.defaultGif {
+        didSet { store.gifHotkey = gifHotkey; onHotkeyChanged?() }
+    }
+    var onHotkeyChanged: (() -> Void)?
 
     var saveFolderName: String { store.saveFolder.lastPathComponent }
     var saveFolder: URL {
@@ -121,5 +169,7 @@ final class SettingsStoreObservable: ObservableObject {
         fps = store.fps
         maxWidth = store.maxWidth
         loopCount = store.loopCount
+        screenshotHotkey = store.screenshotHotkey
+        gifHotkey = store.gifHotkey
     }
 }
