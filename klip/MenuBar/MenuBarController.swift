@@ -188,6 +188,10 @@ extension MenuBarController: RegionSelectorDelegate {
                 outputHandler.sendError(title: "Screenshot failed", body: "Could not capture the selected region.")
                 return
             }
+            // Copy the raw screenshot to clipboard immediately so the user can paste
+            // right away. If they annotate and Save, the editor overwrites the
+            // clipboard with the annotated version.
+            outputHandler.copyPNGToClipboard(image: image)
             openEditor(for: image)
         }
     }

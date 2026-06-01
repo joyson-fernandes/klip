@@ -60,14 +60,30 @@ final class OutputHandler {
     }
 
     func copyPNGToClipboard(image: CGImage) {
+        // Writing both NSImage and raw PNG/TIFF data so any app accepting image paste works.
+        // Just setData(.png) alone misses some apps that expect .tiff or an NSImage class.
+        let nsImage = NSImage(cgImage: image, size: NSSize(width: image.width, height: image.height))
+        let pasteboard = NSPasteboard.general
+        pasteboard.clearContents()
+        pasteboard.writeObjects([nsImage])
         let rep = NSBitmapImageRep(cgImage: image)
-        guard let data = rep.representation(using: .png, properties: [:]) else { return }
-        copyPNGDataToClipboard(data)
+        if let pngData = rep.representation(using: .png, properties: [:]) {
+            pasteboard.setData(pngData, forType: .png)
+        }
+        if let tiffData = rep.tiffRepresentation {
+            pasteboard.setData(tiffData, forType: .tiff)
+        }
     }
 
     func copyPNGDataToClipboard(_ data: Data) {
         let pasteboard = NSPasteboard.general
         pasteboard.clearContents()
+        if let nsImage = NSImage(data: data) {
+            pasteboard.writeObjects([nsImage])
+        }
         pasteboard.setData(data, forType: .png)
+        if let rep = NSBitmapImageRep(data: data), let tiff = rep.tiffRepresentation {
+            pasteboard.setData(tiff, forType: .tiff)
+        }
     }
 }
