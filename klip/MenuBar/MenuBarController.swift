@@ -62,7 +62,9 @@ final class MenuBarController: NSObject {
             hosting.sizingOptions = .preferredContentSize
         }
         popover.contentViewController = hosting
-        popover.behavior = .transient
+        // .applicationDefined — we manage all dismissal via the global click monitor,
+        // so the popover survives when our own overlay windows become key.
+        popover.behavior = .applicationDefined
         popover.animates = false
     }
 
