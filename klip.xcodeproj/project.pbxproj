@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04D3B150967B3CD65A17DE10 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2551B95516E21D092C07DA04 /* Annotation.swift */; };
+		134EA97A9EE913A31A4DF556 /* AnnotationRendererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9652D244EEFC9A7B0F24B630 /* AnnotationRendererTests.swift */; };
 		14B72482BC14EB6F75439EC5 /* SettingsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88327D343439B77B39BD30D1 /* SettingsStoreTests.swift */; };
 		164E14125CCBA381CA00AC94 /* OutputHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0934E72B2161DEEF1D469A64 /* OutputHandlerTests.swift */; };
 		2B25EAFC944AFB50101F940B /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8EEE520481CF18D7B90FCA65 /* AppIcon.icns */; };
@@ -29,6 +30,7 @@
 		DBA4CE76410A2F5B95E412C5 /* RecordingHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD381A1007254E11A41E9EB /* RecordingHUD.swift */; };
 		DF57A296CC1EBF68885366A8 /* CaptureEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C398FEB3B4DE1EBB5C2EFFED /* CaptureEngine.swift */; };
 		E191F93FB44B63EDB1D93919 /* HotkeyManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8181C17E70F7B3EE80B86A8 /* HotkeyManagerTests.swift */; };
+		EA8F86E99982576FC9E8FA84 /* AnnotationRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CD84072679F7AD423D326E /* AnnotationRenderer.swift */; };
 		F0FC6F38F10BF99FBC5D5F7D /* HotkeyRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B403D183A96841CD747D0F /* HotkeyRecorderView.swift */; };
 		FFC7310A45FEFFA9642CFC00 /* gifski in Resources */ = {isa = PBXBuildFile; fileRef = AEBD743578955BC074EDD1EC /* gifski */; };
 /* End PBXBuildFile section */
@@ -61,7 +63,9 @@
 		88327D343439B77B39BD30D1 /* SettingsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStoreTests.swift; sourceTree = "<group>"; };
 		8EEE520481CF18D7B90FCA65 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
 		94FA1B2698A239DA8614E12F /* ScreenshotCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCapture.swift; sourceTree = "<group>"; };
+		9652D244EEFC9A7B0F24B630 /* AnnotationRendererTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationRendererTests.swift; sourceTree = "<group>"; };
 		9D3F2FA34D685C5C01B2DFBE /* ScreenshotCaptureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCaptureTests.swift; sourceTree = "<group>"; };
+		A8CD84072679F7AD423D326E /* AnnotationRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationRenderer.swift; sourceTree = "<group>"; };
 		AEBD743578955BC074EDD1EC /* gifski */ = {isa = PBXFileReference; path = gifski; sourceTree = "<group>"; };
 		B0E4FC51755AAC25F8686590 /* KeyComboTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyComboTests.swift; sourceTree = "<group>"; };
 		B3547DE7BE4C584C184A4825 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 		2B5AF89626BE8B5F5D81759B /* klipTests */ = {
 			isa = PBXGroup;
 			children = (
+				9652D244EEFC9A7B0F24B630 /* AnnotationRendererTests.swift */,
 				003DAEA03395771FE1EEE3A3 /* EditorStateTests.swift */,
 				44BECF7A4AFB7A911280389E /* GIFEncoderTests.swift */,
 				C8181C17E70F7B3EE80B86A8 /* HotkeyManagerTests.swift */,
@@ -134,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				2551B95516E21D092C07DA04 /* Annotation.swift */,
+				A8CD84072679F7AD423D326E /* AnnotationRenderer.swift */,
 				BFFE693742F2F2CCD500E91D /* EditorState.swift */,
 			);
 			path = Editor;
@@ -298,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				134EA97A9EE913A31A4DF556 /* AnnotationRendererTests.swift in Sources */,
 				9555BD3D96BBA80FC4EAF45E /* EditorStateTests.swift in Sources */,
 				CDC1915F6FDC481579D81A48 /* GIFEncoderTests.swift in Sources */,
 				E191F93FB44B63EDB1D93919 /* HotkeyManagerTests.swift in Sources */,
@@ -313,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04D3B150967B3CD65A17DE10 /* Annotation.swift in Sources */,
+				EA8F86E99982576FC9E8FA84 /* AnnotationRenderer.swift in Sources */,
 				DF57A296CC1EBF68885366A8 /* CaptureEngine.swift in Sources */,
 				3DB1D7DD6CCF9E35E8DA318D /* EditorState.swift in Sources */,
 				DA3A08B6369CC4692E71F18C /* GIFEncoder.swift in Sources */,
