@@ -2,7 +2,6 @@ import SwiftUI
 
 struct PopoverView: View {
     @ObservedObject var settings: SettingsStoreObservable
-    let onStartCapture: () -> Void
     let onSelectFolder: () -> Void
     let onQuit: () -> Void
 
@@ -24,15 +23,6 @@ struct PopoverView: View {
                 }
             }
             .padding()
-
-            Button(action: onStartCapture) {
-                Text("▶  Start Capture")
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(.borderedProminent)
-            .tint(Color(red: 0.37, green: 0.36, blue: 0.90))
-            .padding(.horizontal)
-            .padding(.bottom, 12)
 
             Divider()
 

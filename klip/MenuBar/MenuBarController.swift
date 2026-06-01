@@ -54,7 +54,6 @@ final class MenuBarController: NSObject {
         }
         let view = PopoverView(
             settings: observableSettings,
-            onStartCapture: { [weak self] in self?.startCaptureFlow() },
             onSelectFolder: { [weak self] in self?.selectSaveFolder() },
             onQuit: { NSApplication.shared.terminate(nil) }
         )
