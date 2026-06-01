@@ -24,6 +24,7 @@
 		87E7ACB3715717D788C947B8 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A9A30ED66CF46243211BD /* MenuBarController.swift */; };
 		9555BD3D96BBA80FC4EAF45E /* EditorStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003DAEA03395771FE1EEE3A3 /* EditorStateTests.swift */; };
 		AB98466E00C3A44723B44C4F /* OutputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDEF1107F000D227B65FEA8 /* OutputHandler.swift */; };
+		B5CA41672A3C7394FA8A7043 /* EditorWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D129C764C44BB2F7D76A16 /* EditorWindowController.swift */; };
 		CDC1915F6FDC481579D81A48 /* GIFEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BECF7A4AFB7A911280389E /* GIFEncoderTests.swift */; };
 		D4967D66AE51F64DBAA36C27 /* ScreenshotCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA1B2698A239DA8614E12F /* ScreenshotCapture.swift */; };
 		D637965B8A5AF065796532B0 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3547DE7BE4C584C184A4825 /* SettingsStore.swift */; };
@@ -55,6 +56,7 @@
 		0934E72B2161DEEF1D469A64 /* OutputHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputHandlerTests.swift; sourceTree = "<group>"; };
 		102AE18947A301B3B702AD0E /* klip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = klip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10320BB396638AE32CEB06EC /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
+		15D129C764C44BB2F7D76A16 /* EditorWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorWindowController.swift; sourceTree = "<group>"; };
 		173A9A30ED66CF46243211BD /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
 		198142BAF1F763F652C09877 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		2551B95516E21D092C07DA04 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				357FFE90DA5B1D0E0B465276 /* AnnotationCanvas.swift */,
 				A8CD84072679F7AD423D326E /* AnnotationRenderer.swift */,
 				BFFE693742F2F2CCD500E91D /* EditorState.swift */,
+				15D129C764C44BB2F7D76A16 /* EditorWindowController.swift */,
 				198142BAF1F763F652C09877 /* ToolbarView.swift */,
 			);
 			path = Editor;
@@ -330,6 +333,7 @@
 				EA8F86E99982576FC9E8FA84 /* AnnotationRenderer.swift in Sources */,
 				DF57A296CC1EBF68885366A8 /* CaptureEngine.swift in Sources */,
 				3DB1D7DD6CCF9E35E8DA318D /* EditorState.swift in Sources */,
+				B5CA41672A3C7394FA8A7043 /* EditorWindowController.swift in Sources */,
 				DA3A08B6369CC4692E71F18C /* GIFEncoder.swift in Sources */,
 				77F2F1016FA7C824952E2036 /* HotkeyManager.swift in Sources */,
 				F0FC6F38F10BF99FBC5D5F7D /* HotkeyRecorderView.swift in Sources */,
