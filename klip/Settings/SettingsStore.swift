@@ -8,6 +8,8 @@ final class SettingsStore {
         static let maxWidth = "maxWidth"
         static let loopCount = "loopCount"
         static let saveFolder = "saveFolder"
+        static let screenshotHotkey = "screenshotHotkey"
+        static let gifHotkey = "gifHotkey"
     }
 
     init(defaults: UserDefaults = UserDefaults.standard) {
@@ -49,6 +51,32 @@ final class SettingsStore {
         set {
             let data = try? newValue.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
             defaults.set(data, forKey: Key.saveFolder)
+        }
+    }
+
+    var screenshotHotkey: KeyCombo? {
+        get { decodeCombo(forKey: Key.screenshotHotkey, default: KeyCombo.defaultScreenshot) }
+        set { encodeCombo(newValue, forKey: Key.screenshotHotkey) }
+    }
+
+    var gifHotkey: KeyCombo? {
+        get { decodeCombo(forKey: Key.gifHotkey, default: KeyCombo.defaultGif) }
+        set { encodeCombo(newValue, forKey: Key.gifHotkey) }
+    }
+
+    private func decodeCombo(forKey key: String, default fallback: KeyCombo) -> KeyCombo? {
+        if defaults.bool(forKey: key + ".cleared") { return nil }
+        guard let data = defaults.data(forKey: key) else { return fallback }
+        return try? JSONDecoder().decode(KeyCombo.self, from: data)
+    }
+
+    private func encodeCombo(_ combo: KeyCombo?, forKey key: String) {
+        if let combo = combo {
+            defaults.set(false, forKey: key + ".cleared")
+            defaults.set(try? JSONEncoder().encode(combo), forKey: key)
+        } else {
+            defaults.set(true, forKey: key + ".cleared")
+            defaults.removeObject(forKey: key)
         }
     }
 }

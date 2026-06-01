@@ -47,4 +47,23 @@ final class SettingsStoreTests: XCTestCase {
         store.fps = 0
         XCTAssertEqual(store.fps, 5)
     }
+
+    func testDefaultScreenshotHotkey() {
+        XCTAssertEqual(store.screenshotHotkey, KeyCombo.defaultScreenshot)
+    }
+
+    func testDefaultGifHotkey() {
+        XCTAssertEqual(store.gifHotkey, KeyCombo.defaultGif)
+    }
+
+    func testPersistsCustomScreenshotHotkey() {
+        let combo = KeyCombo(keyCode: 7, modifiers: KeyCombo.cmd | KeyCombo.option)
+        store.screenshotHotkey = combo
+        XCTAssertEqual(store.screenshotHotkey, combo)
+    }
+
+    func testCanClearGifHotkey() {
+        store.gifHotkey = nil
+        XCTAssertNil(store.gifHotkey)
+    }
 }
