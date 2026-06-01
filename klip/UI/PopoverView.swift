@@ -12,15 +12,7 @@ struct PopoverView: View {
                     .resizable()
                     .interpolation(.high)
                     .frame(width: 32, height: 32)
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("klip").font(.headline)
-                    Text(
-                        "\(settings.screenshotHotkey?.displayString ?? "—") screenshot   ·   "
-                        + "\(settings.gifHotkey?.displayString ?? "—") GIF"
-                    )
-                    .font(.caption2)
-                    .foregroundColor(.secondary)
-                }
+                Text("klip").font(.headline)
             }
             .padding()
 
