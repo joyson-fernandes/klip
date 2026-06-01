@@ -23,8 +23,16 @@ enum AnnotationRenderer {
         guard let full = ctx.makeImage() else { return nil }
 
         let finalImage: CGImage
-        if let cropRect = cropRect, let cropped = full.cropping(to: cropRect) {
-            finalImage = cropped
+        if let cropRect = cropRect {
+            // Canvas uses y-up (origin at bottom-left); CGImage.cropping uses y-down
+            // (origin at top-left). Flip Y so the user-selected region is what's saved.
+            let flipped = CGRect(
+                x: cropRect.minX,
+                y: CGFloat(full.height) - cropRect.maxY,
+                width: cropRect.width,
+                height: cropRect.height
+            )
+            finalImage = full.cropping(to: flipped) ?? full
         } else {
             finalImage = full
         }
