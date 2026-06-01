@@ -118,40 +118,45 @@ final class SelectionOverlayView: NSView {
     override func acceptsFirstMouse(for event: NSEvent?) -> Bool { true }
 
     override func draw(_ dirtyRect: NSRect) {
-        // Dim the whole screen, then cut a hole for the selection
-        NSColor.black.withAlphaComponent(0.35).setFill()
+        NSColor.black.withAlphaComponent(0.45).setFill()
         bounds.fill()
 
         guard selectionRect.width > 0, selectionRect.height > 0 else { return }
 
-        // Clear the selected region
         NSColor.clear.setFill()
         selectionRect.fill(using: .copy)
 
-        // Purple border
-        let purple = NSColor(red: 0.37, green: 0.36, blue: 0.90, alpha: 1)
-        purple.setStroke()
-        let border = NSBezierPath(rect: selectionRect)
-        border.lineWidth = 2
-        border.stroke()
+        NSColor.black.withAlphaComponent(0.6).setStroke()
+        let outerPath = NSBezierPath(rect: selectionRect.insetBy(dx: -0.5, dy: -0.5))
+        outerPath.lineWidth = 1
+        outerPath.stroke()
 
-        // Dimensions badge (above the selection, falls back to inside if near top edge)
+        NSColor.white.setStroke()
+        let innerPath = NSBezierPath(rect: selectionRect.insetBy(dx: 0.5, dy: 0.5))
+        innerPath.lineWidth = 1
+        innerPath.stroke()
+
         let labelText = "\(Int(selectionRect.width)) × \(Int(selectionRect.height))"
         let attrs: [NSAttributedString.Key: Any] = [
             .foregroundColor: NSColor.white,
-            .font: NSFont.monospacedSystemFont(ofSize: 11, weight: .medium),
+            .font: NSFont.systemFont(ofSize: 11, weight: .medium)
         ]
-        let str = NSAttributedString(string: " \(labelText) ", attributes: attrs)
-        let textSize = str.size()
-        let badgeRect = NSRect(
-            x: selectionRect.minX,
-            y: selectionRect.maxY + 4,
-            width: textSize.width,
-            height: textSize.height + 2
+        let str = NSAttributedString(string: labelText, attributes: attrs)
+        let strSize = str.size()
+        let chipSize = NSSize(width: strSize.width + 16, height: strSize.height + 8)
+
+        let yBelow = selectionRect.minY - chipSize.height - 6
+        let useBelow = yBelow > 6
+        let chipOrigin = NSPoint(
+            x: selectionRect.maxX - chipSize.width,
+            y: useBelow ? yBelow : selectionRect.maxY + 6
         )
-        purple.setFill()
-        badgeRect.fill()
-        str.draw(at: CGPoint(x: badgeRect.minX, y: badgeRect.minY + 1))
+        let chipRect = NSRect(origin: chipOrigin, size: chipSize)
+
+        NSColor.black.withAlphaComponent(0.78).setFill()
+        let chip = NSBezierPath(roundedRect: chipRect, xRadius: 4, yRadius: 4)
+        chip.fill()
+        str.draw(at: NSPoint(x: chipRect.minX + 8, y: chipRect.minY + 4))
     }
 
     override func mouseDown(with event: NSEvent) {
