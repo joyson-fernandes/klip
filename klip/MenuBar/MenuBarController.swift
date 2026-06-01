@@ -138,21 +138,36 @@ final class MenuBarController: NSObject {
 
 extension MenuBarController: RegionSelectorDelegate {
     func regionSelector(_ selector: RegionSelector, didSelect rect: CGRect, on screen: NSScreen) {
-        isRecording = true
-        hud.show(near: rect)
-        Task {
-            do {
-                try await captureEngine.start(rect: rect, screen: screen, fps: settings.fps)
-            } catch {
-                NSLog("klip: capture start failed: %@", String(describing: error))
-                await MainActor.run {
-                    self.hud.hide()
-                    self.isRecording = false
-                    self.outputHandler.sendError(
-                        title: "Capture failed",
-                        body: "Grant Screen Recording permission in System Settings, then quit and reopen klip."
-                    )
+        switch pendingCaptureKind {
+        case .gif:
+            isRecording = true
+            hud.show(near: rect)
+            Task {
+                do {
+                    try await captureEngine.start(rect: rect, screen: screen, fps: settings.fps)
+                } catch {
+                    NSLog("klip: capture start failed: %@", String(describing: error))
+                    await MainActor.run {
+                        self.hud.hide()
+                        self.isRecording = false
+                        self.outputHandler.sendError(
+                            title: "Capture failed",
+                            body: "Grant Screen Recording permission in System Settings, then quit and reopen klip."
+                        )
+                    }
                 }
+            }
+        case .screenshot:
+            guard let image = ScreenshotCapture.capture(rect: rect, screen: screen) else {
+                outputHandler.sendError(title: "Screenshot failed", body: "Could not capture the selected region.")
+                return
+            }
+            do {
+                let savedURL = try outputHandler.savePNG(image: image, to: settings.saveFolder)
+                outputHandler.copyPNGToClipboard(image: image)
+                outputHandler.sendNotification(filename: savedURL.lastPathComponent)
+            } catch {
+                outputHandler.sendError(title: "Couldn't save screenshot", body: String(describing: error))
             }
         }
     }
