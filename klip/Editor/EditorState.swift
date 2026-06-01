@@ -19,6 +19,13 @@ final class EditorState: ObservableObject {
         self.image = image
     }
 
+    var canUndo: Bool { !annotations.isEmpty }
+    var canRedo: Bool { !redoStack.isEmpty }
+
+    /// Human label for what the next undo/redo will affect, e.g. "Arrow", "Rectangle".
+    var undoLabel: String? { annotations.last.map(Self.label(for:)) }
+    var redoLabel: String? { redoStack.last.map(Self.label(for:)) }
+
     func append(_ annotation: Annotation) {
         annotations.append(annotation)
         redoStack.removeAll()
@@ -39,5 +46,20 @@ final class EditorState: ObservableObject {
     func nextStepNumber() -> Int {
         stepCounter += 1
         return stepCounter
+    }
+
+    private static func label(for annotation: Annotation) -> String {
+        switch annotation {
+        case is ArrowAnnotation:     return "Arrow"
+        case is RectAnnotation:      return "Rectangle"
+        case is EllipseAnnotation:   return "Ellipse"
+        case is LineAnnotation:      return "Line"
+        case is PenAnnotation:       return "Pen Stroke"
+        case is TextAnnotation:      return "Text"
+        case is HighlightAnnotation: return "Highlight"
+        case is BlurAnnotation:      return "Blur"
+        case is StepAnnotation:      return "Step"
+        default:                     return "Edit"
+        }
     }
 }
