@@ -4,9 +4,17 @@ final class QuickAccessThumb {
     private var panel: NSPanel?
     private var fadeTimer: Timer?
     private var urlBox: URL?
+    private var onClick: ((URL) -> Void)?
 
-    func show(fileURL: URL, preview: CGImage?) {
+    /// Show the floating thumbnail.
+    /// - Parameters:
+    ///   - fileURL: the file the thumb represents
+    ///   - preview: a preview image (usually the captured image)
+    ///   - onClick: invoked on click (e.g. open editor). If nil, opens in Finder.
+    func show(fileURL: URL, preview: CGImage?, onClick: ((URL) -> Void)? = nil) {
         hide()
+        self.onClick = onClick
+
         let panel = NSPanel(
             contentRect: NSRect(x: 0, y: 0, width: 160, height: 100),
             styleMask: [.borderless, .nonactivatingPanel],
@@ -44,8 +52,14 @@ final class QuickAccessThumb {
         panel.orderFront(nil)
         self.panel = panel
 
-        let click = NSClickGestureRecognizer(target: self, action: #selector(open))
+        let click = NSClickGestureRecognizer(target: self, action: #selector(handleClick))
+        click.buttonMask = 0x1   // primary
         blur.addGestureRecognizer(click)
+
+        let rightClick = NSClickGestureRecognizer(target: self, action: #selector(handleRightClick))
+        rightClick.buttonMask = 0x2 // secondary
+        blur.addGestureRecognizer(rightClick)
+
         urlBox = fileURL
 
         fadeTimer = Timer.scheduledTimer(withTimeInterval: 6, repeats: false) { [weak self] _ in
@@ -58,11 +72,21 @@ final class QuickAccessThumb {
         fadeTimer = nil
         panel?.orderOut(nil)
         panel = nil
+        onClick = nil
     }
 
-    @objc private func open() {
+    @objc private func handleClick() {
+        guard let url = urlBox else { return }
+        if let onClick = onClick {
+            onClick(url)
+        } else {
+            NSWorkspace.shared.activateFileViewerSelecting([url])
+        }
+        hide()
+    }
+
+    @objc private func handleRightClick() {
         guard let url = urlBox else { return }
         NSWorkspace.shared.activateFileViewerSelecting([url])
-        hide()
     }
 }

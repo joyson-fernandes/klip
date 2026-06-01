@@ -188,11 +188,16 @@ extension MenuBarController: RegionSelectorDelegate {
                 outputHandler.sendError(title: "Screenshot failed", body: "Could not capture the selected region.")
                 return
             }
-            // Copy the raw screenshot to clipboard immediately so the user can paste
-            // right away. If they annotate and Save, the editor overwrites the
-            // clipboard with the annotated version.
-            outputHandler.copyPNGToClipboard(image: image)
-            openEditor(for: image)
+            do {
+                let savedURL = try outputHandler.savePNG(image: image, to: settings.saveFolder)
+                outputHandler.copyPNGToClipboard(image: image)
+                outputHandler.sendNotification(filename: savedURL.lastPathComponent)
+                thumb.show(fileURL: savedURL, preview: image) { [weak self] url in
+                    self?.openEditorForExistingFile(at: url)
+                }
+            } catch {
+                outputHandler.sendError(title: "Couldn't save screenshot", body: String(describing: error))
+            }
         }
     }
 
@@ -200,19 +205,24 @@ extension MenuBarController: RegionSelectorDelegate {
         endCaptureFlow()
     }
 
-    private func openEditor(for image: CGImage) {
+    /// Open the editor on an existing PNG file. Saving overwrites that file in place.
+    func openEditorForExistingFile(at url: URL) {
+        guard let data = try? Data(contentsOf: url),
+              let rep = NSBitmapImageRep(data: data),
+              let image = rep.cgImage else {
+            outputHandler.sendError(title: "Couldn't open file", body: "Not a readable PNG.")
+            return
+        }
         activeEditor = EditorWindowController(
             image: image,
             onSave: { [weak self] pngData in
                 guard let self else { return }
                 do {
-                    let savedURL = try self.outputHandler.savePNGData(pngData, to: self.settings.saveFolder)
+                    try pngData.write(to: url)
                     self.outputHandler.copyPNGDataToClipboard(pngData)
-                    self.outputHandler.sendNotification(filename: savedURL.lastPathComponent)
-                    let preview = NSBitmapImageRep(data: pngData)?.cgImage
-                    self.thumb.show(fileURL: savedURL, preview: preview)
+                    self.outputHandler.sendNotification(filename: url.lastPathComponent)
                 } catch {
-                    self.outputHandler.sendError(title: "Couldn't save screenshot", body: String(describing: error))
+                    self.outputHandler.sendError(title: "Couldn't save", body: String(describing: error))
                 }
                 self.activeEditor = nil
             },
