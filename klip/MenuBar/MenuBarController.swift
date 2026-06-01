@@ -95,19 +95,26 @@ final class MenuBarController: NSObject {
         } else if let button = statusItem.button {
             observableSettings.load()
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
-            // Dismiss when clicking anywhere outside (LSUIElement apps don't get .transient
-            // dismissal for free because the app isn't activated on icon click).
-            clickOutsideMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown]) { [weak self] _ in
-                self?.closePopover()
-            }
+            installClickOutsideMonitor()
         }
     }
 
-    private func closePopover() {
+    private func installClickOutsideMonitor() {
+        guard clickOutsideMonitor == nil else { return }
+        clickOutsideMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown]) { [weak self] _ in
+            self?.closePopover()
+        }
+    }
+
+    private func removeClickOutsideMonitor() {
         if let monitor = clickOutsideMonitor {
             NSEvent.removeMonitor(monitor)
             clickOutsideMonitor = nil
         }
+    }
+
+    private func closePopover() {
+        removeClickOutsideMonitor()
         popover.performClose(nil)
     }
 
@@ -132,8 +139,17 @@ final class MenuBarController: NSObject {
     }
 
     private func startCaptureFlow() {
-        popover.performClose(nil)
+        // Suspend click-outside dismissal so the capture drag doesn't close the popover.
+        // It will be reinstated by `endCaptureFlow()` after the selector dismisses.
+        removeClickOutsideMonitor()
         regionSelector.show()
+    }
+
+    private func endCaptureFlow() {
+        // After capture (or cancel), if the popover is still open, re-arm the click monitor.
+        if popover.isShown {
+            installClickOutsideMonitor()
+        }
     }
 
     private func stopRecording() {
@@ -145,6 +161,7 @@ final class MenuBarController: NSObject {
 
 extension MenuBarController: RegionSelectorDelegate {
     func regionSelector(_ selector: RegionSelector, didSelect rect: CGRect, on screen: NSScreen) {
+        endCaptureFlow()
         switch pendingCaptureKind {
         case .gif:
             isRecording = true
@@ -173,7 +190,9 @@ extension MenuBarController: RegionSelectorDelegate {
         }
     }
 
-    func regionSelectorDidCancel(_ selector: RegionSelector) {}
+    func regionSelectorDidCancel(_ selector: RegionSelector) {
+        endCaptureFlow()
+    }
 
     private func openEditor(for image: CGImage) {
         activeEditor = EditorWindowController(
