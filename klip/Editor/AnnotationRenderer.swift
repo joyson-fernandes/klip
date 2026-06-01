@@ -2,7 +2,9 @@ import AppKit
 import CoreGraphics
 
 enum AnnotationRenderer {
-    static func flatten(image: CGImage, annotations: [Annotation]) -> Data? {
+    /// Flatten image + annotations into a single PNG.
+    /// - Parameter cropRect: if provided (in image coordinates), the output is cropped to that rect.
+    static func flatten(image: CGImage, annotations: [Annotation], cropRect: CGRect? = nil) -> Data? {
         let width = image.width
         let height = image.height
         let space = CGColorSpaceCreateDeviceRGB()
@@ -18,8 +20,16 @@ enum AnnotationRenderer {
         for ann in annotations {
             ann.draw(in: ctx)
         }
-        guard let flat = ctx.makeImage() else { return nil }
-        let rep = NSBitmapImageRep(cgImage: flat)
+        guard let full = ctx.makeImage() else { return nil }
+
+        let finalImage: CGImage
+        if let cropRect = cropRect, let cropped = full.cropping(to: cropRect) {
+            finalImage = cropped
+        } else {
+            finalImage = full
+        }
+
+        let rep = NSBitmapImageRep(cgImage: finalImage)
         return rep.representation(using: .png, properties: [:])
     }
 }

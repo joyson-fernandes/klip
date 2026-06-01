@@ -105,7 +105,11 @@ final class EditorWindowController: NSWindowController, NSWindowDelegate {
     }
 
     func save() {
-        guard let data = AnnotationRenderer.flatten(image: state.image, annotations: state.annotations) else {
+        guard let data = AnnotationRenderer.flatten(
+            image: state.image,
+            annotations: state.annotations,
+            cropRect: state.cropRect
+        ) else {
             cancel(); return
         }
         onSave(data)
